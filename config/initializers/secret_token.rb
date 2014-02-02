@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CommunityGreenlabCoworking::Application.config.secret_key_base = '1b80a5cf2f646fb42c8e5de75567f16d5ed38293016cfe28125b8df09c5e3941a4b30a3dba9d613ce6b1eb174f274b35bb4e22e7cb9836bf5da7fa5fddba5369'
+CommunityGreenlabCoworking::Application.config.secret_key_base = 'f18adfafda7b73046c28ff6e520158a08d9feb59681e7307f79d2019e9591c28e5e750b5043c9f6347b96de649f21c718c194cc6d93e53de64478ecc14e29caa'
