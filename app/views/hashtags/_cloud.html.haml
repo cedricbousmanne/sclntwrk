@@ -1,0 +1,4 @@
+- if popular_hashtags.present?
+  %h3= t("block_title.popular_hashtags", default: "Popular Hashtags")
+  - for hashtag in popular_hashtags
+    = link_to "##{hashtag.name}", community_hashtag_path(current_community, hashtag.name)

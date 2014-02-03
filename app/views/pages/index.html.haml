@@ -1,0 +1,6 @@
+- if current_user
+  %h1= t("page_title.my_communities")
+  = render partial: "communities/list", locals: { communities: current_user.communities }
+- else
+  %h1 Pages#index
+  %p Find me in app/views/pages/index.html.haml

@@ -1,0 +1,4 @@
+- if recent_activities.present?
+  %h3= t("block_title.recent_activity", default: "Recent Activity")
+  - for activity in recent_activities
+    = "#{activity.owner.id} posted #{activity.trackable.content}"

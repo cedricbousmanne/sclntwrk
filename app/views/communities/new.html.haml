@@ -1,0 +1,4 @@
+= simple_form_for @community, class: "form-horizonta" do |f|
+  = f.input :name
+  = f.input :private, as: :boolean
+  = f.submit t("button.communities.create", default: "Create my community"), class: "btn btn-lg btn-success"

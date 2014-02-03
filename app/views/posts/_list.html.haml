@@ -1,0 +1,7 @@
+- if posts.any?
+  - for post in posts
+    .posts
+      = render partial: "posts/item", locals: { post: post }
+- else
+  .alert.alert-info
+    = t("notices.posts.none", default: "There is no post in this community")

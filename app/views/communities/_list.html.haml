@@ -1,0 +1,11 @@
+- if communities.any?
+  %ul
+    - for community in communities
+      = link_to community do
+        %li= community.name
+- else
+  .alert.alert-info
+    = t("notices.communities.none", default: "You don't belong to any community yet")
+= link_to new_community_path, class: "btn btn-success btn-lg" do
+  %i.glyphicon.glyphicon-plus
+  = t("buttons.communities.create", default: "Create a new community")
