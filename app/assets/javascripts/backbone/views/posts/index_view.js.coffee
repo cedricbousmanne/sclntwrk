@@ -1,14 +1,20 @@
 Application.Views.Posts ||= {}
 
 class Application.Views.Posts.IndexView extends Backbone.View
-  el : "body"
-
-  events:
-    "click .post-meta-add-comment" : "loadComments"
+  template: JST["backbone/templates/posts/index"]
 
   initialize: () ->
+    @options.posts.bind('reset', @addAll)
 
-  loadComments: (event) =>
-    container = $(event.target).parents(".publication-item")
-    console.log(container.data("publication-id"))
+  addAll: () =>
+    @options.posts.each(@addOne)
 
+  addOne: (post) =>
+    view = new Application.Views.Posts.PostView({model : post})
+    @$("#posts-container").append(view.render().el)
+
+  render: =>
+    $(@el).html(@template(posts: @options.posts.toJSON() ))
+    @addAll()
+
+    return this

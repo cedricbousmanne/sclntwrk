@@ -1,0 +1,4 @@
+%div#posts-container
+
+%br/
+%a{href: "#/new"} New Post
