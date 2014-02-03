@@ -6,6 +6,3 @@ node(:author_display_name){|p|
 child(:author => :author){
   extends('/users/show')
 }
-# node(:author_photo_thumb_50x50_url){ |p|
-#   p.author.photo.thumb('50x50#').url
-# }

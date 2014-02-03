@@ -248,7 +248,7 @@ DEPENDENCIES
   html2haml
   hub
   jbuilder (~> 1.2)
-  jquery-rails
+  jquery-rails (= 3.1.0)
   mysql2 (= 0.3.15)
   public_activity (= 1.4.1)
   quiet_assets

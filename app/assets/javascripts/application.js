@@ -20,4 +20,6 @@
 // require backbone_datalink
 //= require backbone
 //= require backbone/application
+//= require moment-with-langs.min
+//= require livestamp
 //= require_tree .
