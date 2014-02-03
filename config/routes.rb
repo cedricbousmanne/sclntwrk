@@ -7,10 +7,10 @@ CommunityGreenlabCoworking::Application.routes.draw do
 
   resource :profile, only: [:edit, :update]
 
-  resources :communities do
-    resources :posts, only: [:index, :create]
-    get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
-    get "hashtags",            to: "hashtags#index",     as: :hashtags
-  end
+  resources :communities
+  resources :posts, only: [:index, :create, :show]
+  get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
+  get "hashtags",            to: "hashtags#index",     as: :hashtags
+
 
 end

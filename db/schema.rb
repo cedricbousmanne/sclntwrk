@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203123746) do
+ActiveRecord::Schema.define(version: 20140203163342) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140203123746) do
     t.boolean  "private",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain"
   end
 
   create_table "communities_users", id: false, force: true do |t|
@@ -43,12 +44,13 @@ ActiveRecord::Schema.define(version: 20140203123746) do
     t.integer "user_id"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "publications", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "author_id"
     t.integer  "community_id"
+    t.string   "type",         default: "Post"
   end
 
   create_table "simple_hashtag_hashtaggings", force: true do |t|

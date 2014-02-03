@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to edit_profile_path, notice: I18n.t("notices.profiles.updated", default: "Your profile has successfully been updated")
+      redirect_to edit_profile_path, notice: "Votre profil a été mis à jour"
     else
       render :edit
     end

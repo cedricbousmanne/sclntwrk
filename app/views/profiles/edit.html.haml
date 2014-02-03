@@ -1,7 +1,7 @@
-%h1= t("page_title.my_profile", default: "My profile")
+%h1 Mon profil
 = simple_form_for(@user, url: profile_path(@user)) do |f|
   = f.input :firstname
   = f.input :lastname
   = f.input :photo, as: :file
 
-  = f.submit t("buttons.update_profile", default: "Update my profile"), class: "btn btn-lg btn-success"
+  = f.submit "Mise à jour de mon profil", class: "btn btn-lg btn-success"

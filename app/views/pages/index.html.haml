@@ -1,5 +1,5 @@
 - if current_user
-  %h1= t("page_title.my_communities")
+  %h1 Mes communautés
   = render partial: "communities/list", locals: { communities: current_user.communities }
 - else
   %h1 Pages#index

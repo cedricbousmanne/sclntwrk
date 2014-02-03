@@ -55,7 +55,7 @@ gem 'simple_hashtag',          '0.1.9'
 gem 'public_activity',         '1.4.1'
 gem 'dragonfly',               '1.0.3'
 gem 'dragonfly-s3_data_store', '1.0.3'
-
+gem 'backbone-rails',          '1.0.0'
 
 
 

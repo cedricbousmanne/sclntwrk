@@ -1,4 +1,6 @@
 - if recent_activities.present?
-  %h3= t("block_title.recent_activity", default: "Recent Activity")
+  %h3 Activité récente
+  .list-group
   - for activity in recent_activities
-    = "#{activity.owner.id} posted #{activity.trackable.content}"
+    = link_to post_path(activity.trackable), class: "list-group-item" do
+      = activity.text(owner: activity.owner.display_name, content: activity.trackable.content).html_safe

@@ -11,7 +11,7 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     if @community.save
       @community.users << current_user
-      redirect_to @community, notice: I18n.t("notices.communities.created", default: "Your community was created successfully")
+      redirect_to @community, notice: "Votre communauté a été créée avec succès"
     else
       render :new
     end

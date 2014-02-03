@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_community
-    @current_community ||= params[:community_id].present? ? Community.find(params[:community_id]) : nil
+    @current_community ||= Community.find_by_domain(request.host)
   end
 
   def recent_activities

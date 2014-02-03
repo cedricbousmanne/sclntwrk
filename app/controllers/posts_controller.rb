@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource :through => :community, except: :create
+  load_and_authorize_resource :through => :current_community, except: :create
 
   def index
-    @post = community.posts.new
+    @post = current_community.posts.new
     @posts = @posts.persisted
   end
 
@@ -11,20 +11,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = community.posts.new(post_params)
+    @post = current_community.posts.new(post_params)
     @post.author = current_user
     if @post.save
-      redirect_to community_posts_path(@community)
+      redirect_to posts_path()
     else
       render :new
     end
   end
 
   private
-
-  def community
-    @community = Community.find(params[:community_id])
-  end
 
   def post_params
     params.require(:post).permit(:content)

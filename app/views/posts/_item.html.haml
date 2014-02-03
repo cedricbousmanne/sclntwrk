@@ -1,8 +1,18 @@
-.post-item
-  .col-md-1.col-sm-1.hidden-xs.post-meta
+%div.publication-item.post-item{ id: "publication-#{post.id}", data: { publication_id: post.id } }
+  .col-md-1.col-sm-1.hidden-xs.post-author-photo
     = image_tag post.author.photo.thumb('50x50#').url
   .col-md-11.col-sm-11.col-xs-12.post-content
     %strong.post-author= post.author.display_name
     %br
     = linkify_hashtags(post.content, current_community)
+    %br
+    %small.post-meta
+      %a.post-meta-add-comment{href: "#"}
+        Commenter
+      &bull;
+      %i.glyphicon.glyphicon-time
+      = l(post.created_at, format: :short)
+    %div.post-comments{ id: "#publication-#{post.id}-comments" }
+
+
   .clearfix
