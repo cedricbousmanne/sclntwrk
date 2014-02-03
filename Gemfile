@@ -42,15 +42,22 @@ gem 'jbuilder', '~> 1.2'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass', '>= 3.0.0.0'
-gem 'cancan'
-gem 'devise'
-gem 'devise_invitable'
-gem 'figaro'
-gem 'haml-rails'
-gem 'mysql2'
-gem 'rolify'
-gem 'simple_form'
+gem 'bootstrap-sass',          '>= 3.0.0.0'
+gem 'cancan',                  '1.6.10'
+gem 'devise',                  '3.2.2'
+gem 'devise_invitable',        '1.3.3'
+gem 'figaro',                  '0.7.0'
+gem 'haml-rails',              '0.5.3'
+gem 'mysql2',                  '0.3.15'
+gem 'rolify',                  '3.4.0'
+gem 'simple_form',             '3.0.1'
+gem 'simple_hashtag',          '0.1.9'
+gem 'public_activity',         '1.4.1'
+gem 'dragonfly',               '1.0.3'
+gem 'dragonfly-s3_data_store', '1.0.3'
+
+
+
 
 group :development do
   gem 'better_errors'
