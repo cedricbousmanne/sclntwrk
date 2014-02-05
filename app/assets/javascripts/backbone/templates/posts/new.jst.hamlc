@@ -1,6 +1,0 @@
-%form#new-post{name: "post", role: "form"}
-  .form-group
-    %textarea#content{name: "content", type: "text", value: @content, placeholder: "Type your post", class: "col-sm-12"}
-  .actions
-    %input{type: "submit", value: "Publier", class: "btn btn-success"}/
-%a{href: "#/index"} Back
