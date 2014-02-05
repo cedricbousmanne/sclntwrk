@@ -6,4 +6,4 @@ class Application.Models.Post extends Backbone.Model
 
 class Application.Collections.PostsCollection extends Backbone.Collection
   model: Application.Models.Post
-  url: '/posts'
+  url: '/posts.json'

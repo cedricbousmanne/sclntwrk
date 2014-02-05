@@ -1,0 +1,2 @@
+$("#commentable-#{@comment.commentable.class.name.downcase}-#{@comment.commentable.id}-container").append("#{ j(render partial: 'comments/item', locals: { comment: @comment, hidden: false }) }")
+$("#commentable-#{@comment.commentable.class.name.downcase}-#{@comment.commentable.id}-container").parents().first().find("textarea").first().val("")

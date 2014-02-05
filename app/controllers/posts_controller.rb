@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   load_and_authorize_resource :through => :current_community, except: :create
+  respond_to :json
 
   def index
     @post = current_community.posts.new
-    @posts = @posts.persisted
+    @posts = @posts.order("created_at desc").persisted
   end
 
   def show
@@ -13,10 +14,18 @@ class PostsController < ApplicationController
   def create
     @post = current_community.posts.new(post_params)
     @post.author = current_user
-    if @post.save
-      redirect_to posts_path()
-    else
-      render :new
+    @post.save
+    respond_to do |format|
+      format.html{
+        if @post.save
+          redirect_to posts_path()
+        else
+          render :new
+        end
+      }
+      format.js{
+
+      }
     end
   end
 

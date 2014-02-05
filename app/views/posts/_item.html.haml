@@ -3,16 +3,17 @@
     = image_tag post.author.photo.thumb('50x50#').url
   .col-md-11.col-sm-11.col-xs-12.post-content
     %strong.post-author= post.author.display_name
-    %br
-    = linkify_hashtags(post.content, current_community)
-    %br
+    .post-content-inner
+      = linkify_hashtags(post.content)
     %small.post-meta
       %a.post-meta-add-comment{href: "#"}
         Commenter
       &bull;
       %i.glyphicon.glyphicon-time
-      = l(post.created_at, format: :short)
+      %abbr{ data: { livestamp: post.created_at } }
+        = l(post.created_at, format: :short)
     %div.post-comments{ id: "#publication-#{post.id}-comments" }
-
+      = render partial: "comments/list", locals: { commentable: post }
+      = render partial: "comments/form", locals: { comment: post.comments.build }
 
   .clearfix

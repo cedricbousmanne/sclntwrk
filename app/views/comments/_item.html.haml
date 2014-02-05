@@ -1,0 +1,11 @@
+%div.publication-item.comment-item{ id: "publication-#{comment.id}", class: "#{hidden ? "hidden" : nil }", data: { publication_id: comment.id } }
+  .col-md-1.col-sm-1.hidden-xs.comment-author-photo
+    = image_tag comment.author.photo.thumb('40x40#').url
+  .col-md-11.col-sm-11.col-xs-12.comment-content
+    %strong.comment-author= comment.author.display_name
+    .comment-content-inner
+      = linkify_hashtags(comment.content)
+    %small.comment-meta
+      %i.glyphicon.glyphicon-time
+      %abbr{ data: { livestamp: comment.created_at } }
+        = l(comment.created_at, format: :short)

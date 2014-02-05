@@ -1,2 +1,2 @@
-= simple_form_for(@post) do |f|
+= simple_form_for(@post, remote: true) do |f|
   = render partial: "posts/form", locals: { f: f }

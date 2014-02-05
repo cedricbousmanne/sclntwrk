@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203163342) do
+ActiveRecord::Schema.define(version: 20140204163254) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -50,8 +50,13 @@ ActiveRecord::Schema.define(version: 20140203163342) do
     t.datetime "updated_at"
     t.integer  "author_id"
     t.integer  "community_id"
-    t.string   "type",         default: "Post"
+    t.string   "type",             default: "Post"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
   end
+
+  add_index "publications", ["commentable_id"], name: "index_publications_on_commentable_id", using: :btree
+  add_index "publications", ["commentable_type"], name: "index_publications_on_commentable_type", using: :btree
 
   create_table "simple_hashtag_hashtaggings", force: true do |t|
     t.integer "hashtag_id"

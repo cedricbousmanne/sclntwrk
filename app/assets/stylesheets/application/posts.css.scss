@@ -1,6 +1,39 @@
 .publication-item{
   border-bottom: 1px solid #EEE;
+  display: block;
+  float: right;
+  width: 100%;
+}
+
+.post-item{
+  padding: 10px;
+  .post-author,
+  .post-content-inner{
+    padding: 5px;
+  }
+  .post-meta{
+    padding: 5px;
+    display: block;
+    background: #EFEFEF;
+  }
+}
+
+.comment-item{
+
+}
+
+.comment-item.show-comments{
+  padding-top: 0px !important
+}
+
+.post-comments{
+  background: #EFEFEF;
   padding-top: 10px;
-  padding-bottom: 20px;
-  min-height: 60px
+  border-top: 1px solid #DEDEDE;
+  .comment-item{
+    border-bottom: 1px solid #DEDEDE;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
 }

@@ -32,6 +32,6 @@ class Application.Views.Posts.NewView extends Backbone.View
   render: ->
     $(@el).html(@template(@model.toJSON() ))
 
-    this.$("form").backboneLink(@model)
+    # this.$("form").backboneLink(@model)
 
     return this

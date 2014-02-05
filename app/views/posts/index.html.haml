@@ -1,12 +1,3 @@
 %h1= current_community.name
-/ = render partial: "posts/new"
-/ = render partial: "posts/list", locals: { posts: @posts }
-
-#posts
-
-:javascript
-  $(function() {
-    // Blog is the app name
-    window.router = new Application.Routers.PostsRouter({posts: #{render(file: 'posts/index', posts: @posts, formats: :json).html_safe}});
-    Backbone.history.start();
-  });
+= render partial: "posts/new"
+= render partial: "posts/list", locals: { posts: @posts }
