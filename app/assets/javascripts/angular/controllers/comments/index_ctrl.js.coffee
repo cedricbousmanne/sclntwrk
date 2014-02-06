@@ -1,7 +1,5 @@
 @CommentIndexCtrl = [ "$scope", "$window", ($scope, $window) ->
 
-  $(".new_comment input[type='submit']").hide()
-
   $scope.showHiddenComments = (element,$event) ->
     $event.preventDefault
     container = $($event.currentTarget).parents(".commentable-container")

@@ -4,7 +4,7 @@
   .col-md-11.col-sm-11.col-xs-12.post-content
     %strong.post-author= post.author.display_name
     .post-content-inner
-      = linkify_hashtags(post.content)
+      = simple_format(linkify_hashtags(post.content))
     %small.post-meta
       %a.post-meta-add-comment{href: "#"}
         Commenter

@@ -3,7 +3,7 @@
     = image_tag current_user.photo.thumb('40x40#').url
   .col-md-11.col-sm-11.col-xs-12.comment-content
     .comment-content-inner
-      = simple_form_for([comment.commentable, comment], remote: true, html: { "ui-keypress" => "{13:'submit($event)'}"}) do |f|
-        = f.input :content, label: false, placeholder: "Votre commentaire&hellip;".html_safe, input_html: { rows: 1 }
-        = f.submit "Publier", class: "btn btn-success hidden"
+      = simple_form_for([comment.commentable, comment], remote: true) do |f|
+        = f.input :content, label: false, placeholder: "Votre commentaire&hellip;".html_safe, input_html: { rows: 1, class: "autosize" }, wrapper_html:{ class: "col-md-10" }
+        = f.submit "Publier", class: "btn btn-success col-md-2"
 .clearfix

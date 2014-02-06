@@ -1,2 +1,7 @@
-= f.input :content, label: false, placeholder: "Type your post"
-= f.submit "Publier", class: "btn btn-success"
+.panel.panel-default
+  .panel-body
+    = f.input :content, label: false, placeholder: "Exprimez-vous", input_html: { class: "autosize" }
+  .panel-footer
+    .pull-right
+      = f.submit "Publier", class: "btn btn-success"
+    .clearfix
