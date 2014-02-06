@@ -1,10 +1,10 @@
-%div{id: "commentable-#{commentable.class.name.downcase}-#{commentable.id}-container"}
+%div{id: "commentable-#{commentable.class.name.downcase}-#{commentable.id}-container", class: "commentable-container", "ng-controller" => "CommentIndexCtrl"}
   - if commentable.comments.any?
     - if commentable.comments.size > 2
       - other_comments = commentable.comments.size - 2
       %div.publication-item.comment-item.show-comments
         .col-md-12.col-sm-12.col-xs-12.comment-content
           %i.glyphicon.glyphicon-comment
-          %a{href: "#"}= "Afficher #{other_comments} autre(s) commentaire(s)"
+          %a{"ng-click" => "showHiddenComments(this,$event)"}= "Afficher #{other_comments} autre(s) commentaire(s)"
     - for comment in commentable.comments
       = render partial: "comments/item", locals: { comment: comment, hidden: commentable.comments.size > 2 && commentable.comments.index(comment) < commentable.comments.size - 2 }

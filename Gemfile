@@ -56,6 +56,10 @@ gem 'public_activity',         '1.4.1'
 gem 'dragonfly',               '1.0.3'
 gem 'dragonfly-s3_data_store', '1.0.3'
 gem 'angular-gem',             '1.2.1'
+gem "bower-rails", "~> 0.7.0"
+
+
+
 # gem 'rails-backbone'
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'

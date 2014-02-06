@@ -9,5 +9,3 @@
 
 #= require angular
 #= require ./angular/application
-
-# moment.lang("fr")

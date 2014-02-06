@@ -17,7 +17,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-  %body{:"ng-controller" => content_for?(:angular_controller) ? "ng-controller=#{yield(:angular_controller)}" : nil }
+  %body{:"ng-controller" => content_for?(:angular_controller) ? yield(:angular_controller) : nil }
 
     = render partial: "shared/navbar"
 
