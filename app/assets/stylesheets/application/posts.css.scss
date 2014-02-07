@@ -1,3 +1,28 @@
+a.load-more-posts{
+  margin-top: 200px;
+  margin-bottom: 200px;
+  background-image: url(asset-path("ajax-loader.gif"));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  text-align: center;
+  display: block;
+  text-indent: -9999em;
+}
+.posts{
+  float: left;
+  margin-bottom: 50px;
+  a.thumbnail{
+    img{
+      height: 100px;
+      width: 100px;
+      background-image: url(asset-path("ajax-loader.gif"));
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+  }
+}
+
+
 .publication-item{
   border-bottom: 1px solid #EEE;
   display: block;

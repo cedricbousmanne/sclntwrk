@@ -7,9 +7,6 @@
       = simple_format(linkify_hashtags(post.content))
       = render partial: "assets/list", locals: { assets: post.assets }
     %small.post-meta
-      %a.post-meta-add-comment{href: "#"}
-        Commenter
-      &bull;
       %i.glyphicon.glyphicon-time
       %abbr{ data: { livestamp: post.created_at } }
         = l(post.created_at, format: :short)

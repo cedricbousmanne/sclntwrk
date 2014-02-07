@@ -9,10 +9,12 @@
 #= require jasny-bootstrap.min
 #= require holder
 #= require jquery.hashtags
+#= require jquery.inview.min
 
 
 #= require angular
 #= require ./angular/application
 #= require angular-file-upload.min
 
+#= require posts
 #= require ./application/main

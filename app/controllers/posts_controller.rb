@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   load_and_authorize_resource :through => :current_community, except: :create
-  respond_to :json
+  respond_to :json, :js
 
   def index
     @post = current_community.posts.new
     @posts = @posts.order("created_at desc")
-    @posts = @posts.limit(5)
+    @posts = @posts.paginate(:page => params[:page])
     @posts = @posts.includes([:author, :assets])
-    @posts = @posts.persisted
+    # @posts = @posts.persisted
   end
 
   def show

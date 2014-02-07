@@ -56,6 +56,7 @@ gem 'public_activity',                 '1.4.1'
 gem 'dragonfly',                       '1.0.3'
 gem 'dragonfly-s3_data_store',         '1.0.3'
 gem 'angular-gem',                     '1.2.1'
+gem 'will_paginate',                   '3.0.5'
 
 
 
