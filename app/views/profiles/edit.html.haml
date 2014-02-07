@@ -1,7 +1,19 @@
 %h1 Mon profil
-= simple_form_for(@user, url: profile_path(@user)) do |f|
-  = f.input :firstname
-  = f.input :lastname
-  = f.input :photo, as: :file
+= simple_form_for(@user, url: profile_path(@user), html: { multipart: true }) do |f|
+  .col-md-4
+    .fileinput.fileinput-new{"data-provides" => "fileinput"}
+      .fileinput-new.thumbnail{style: "width: 200px; height: 150px;"}
+        = image_tag current_user.photo.thumb('150x200#').url
+      .fileinput-preview.fileinput-exists.thumbnail{style: "max-width: 200px; max-height: 150px;"}
+      %div
+        %span.btn.btn-default.btn-file
+          %span.fileinput-new Choisir une image
+          %span.fileinput-exists Modifier
+          %input{name: "user[photo]", type: "file"}/
+        %a.btn.btn-default.fileinput-exists{"data-dismiss" => "fileinput", href: "#"} Supprimer
+  .col-md-8
+    = f.input :firstname
+    = f.input :lastname
+  .clearfix
 
   = f.submit "Mise à jour de mon profil", class: "btn btn-lg btn-success"

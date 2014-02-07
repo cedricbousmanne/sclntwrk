@@ -6,6 +6,8 @@
 #= require moment-with-langs.min
 #= require livestamp
 #= require jquery.autosize.min
+#= require jasny-bootstrap.min
+
 
 #= require angular
 #= require ./angular/application

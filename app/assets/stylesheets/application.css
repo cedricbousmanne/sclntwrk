@@ -12,6 +12,6 @@
  *= require_tree .
  *= require_tree ./application
  *= require bootstrap
-
+ *= require jasny-bootstrap
 
  */
