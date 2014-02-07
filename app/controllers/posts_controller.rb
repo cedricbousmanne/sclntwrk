@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @post = current_community.posts.new
     @posts = @posts.order("created_at desc")
     @posts = @posts.limit(5)
+    @posts = @posts.includes([:author, :assets])
     @posts = @posts.persisted
   end
 

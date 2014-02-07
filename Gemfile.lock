@@ -40,6 +40,9 @@ GEM
     bootstrap-sass (3.1.0.0)
       sass (~> 3.2)
     builder (3.1.4)
+    bullet (4.7.1)
+      activesupport
+      uniform_notifier (>= 1.4.0)
     cancan (1.6.10)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -127,6 +130,10 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    lol_dba (1.6.0)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      railties (>= 3.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -218,6 +225,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
@@ -231,6 +239,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
+  bullet
   cancan (= 1.6.10)
   capybara
   coffee-rails (~> 4.0.0)
@@ -248,6 +257,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 1.2)
   jquery-rails (= 3.1.0)
+  lol_dba
   mysql2 (= 0.3.15)
   public_activity (= 1.4.1)
   quiet_assets

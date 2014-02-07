@@ -8,6 +8,7 @@
 #= require jquery.autosize.min
 #= require jasny-bootstrap.min
 #= require holder
+#= require jquery.hashtags
 
 
 #= require angular

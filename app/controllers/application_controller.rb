@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def popular_hashtags
     if current_community
-      @popular_hashtags ||= current_community.posts.map(&:hashtags).flatten.uniq
+      @popular_hashtags ||= current_community.posts.includes(:hashtags).map(&:hashtags).flatten.uniq
     end
   end
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def recent_activities
     if current_community
-      @recent_activities ||= PublicActivity::Activity.where(community_id: current_community.id).order("created_at desc").limit(10)
+      @recent_activities ||= PublicActivity::Activity.where(community_id: current_community.id).order("created_at desc").includes(:owner, :trackable).limit(10)
     end
   end
 

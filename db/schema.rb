@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207081619) do
+ActiveRecord::Schema.define(version: 20140207193159) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20140207081619) do
     t.integer  "author_id"
   end
 
+  add_index "assets", ["author_id"], name: "index_assets_on_author_id", using: :btree
+  add_index "assets", ["community_id"], name: "index_assets_on_community_id", using: :btree
+  add_index "assets", ["publication_id"], name: "index_assets_on_publication_id", using: :btree
+
   create_table "communities", force: true do |t|
     t.string   "name",                       null: false
     t.boolean  "private",    default: false
@@ -53,6 +57,9 @@ ActiveRecord::Schema.define(version: 20140207081619) do
     t.integer "user_id"
   end
 
+  add_index "communities_users", ["community_id", "user_id"], name: "index_communities_users_on_community_id_and_user_id", using: :btree
+  add_index "communities_users", ["user_id", "community_id"], name: "index_communities_users_on_user_id_and_community_id", using: :btree
+
   create_table "publications", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
@@ -64,8 +71,11 @@ ActiveRecord::Schema.define(version: 20140207081619) do
     t.string   "commentable_type"
   end
 
+  add_index "publications", ["author_id"], name: "index_publications_on_author_id", using: :btree
   add_index "publications", ["commentable_id"], name: "index_publications_on_commentable_id", using: :btree
   add_index "publications", ["commentable_type"], name: "index_publications_on_commentable_type", using: :btree
+  add_index "publications", ["community_id"], name: "index_publications_on_community_id", using: :btree
+  add_index "publications", ["id", "type"], name: "index_publications_on_id_and_type", using: :btree
 
   create_table "simple_hashtag_hashtaggings", force: true do |t|
     t.integer "hashtag_id"

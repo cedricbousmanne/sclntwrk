@@ -1,2 +1,5 @@
-$(".commentable-#{@comment.commentable.class.name.downcase}-#{@comment.commentable.id}-container").append("#{ j(render partial: 'comments/item', locals: { comment: @comment, hidden: false }) }")
-$(".commentable-#{@comment.commentable.class.name.downcase}-#{@comment.commentable.id}-container").parents().first().find("textarea").first().val("")
+container = $(".commentable-#{@comment.commentable.class.name.downcase}-#{@comment.commentable.id}-container")
+textarea = container.parents().first().find("textarea")
+container.append("#{ j(render partial: 'comments/item', locals: { comment: @comment, hidden: false }) }")
+textarea.first().val("")
+textarea.hashtagsReset()

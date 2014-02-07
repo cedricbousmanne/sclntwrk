@@ -4,6 +4,6 @@
   .col-md-11.col-sm-11.col-xs-12.comment-content
     .comment-content-inner
       = simple_form_for([comment.commentable, comment], remote: true) do |f|
-        = f.input :content, label: false, placeholder: "Votre commentaire&hellip;".html_safe, input_html: { rows: 1, class: "autosize" }, wrapper_html:{ class: "col-md-10" }
+        = f.input :content, label: false, placeholder: "Votre commentaire&hellip;".html_safe, input_html: { rows: 1, class: "autosize hashtags" }, wrapper_html:{ class: "col-md-10" }
         = f.submit "Publier", class: "btn btn-success col-md-2"
 .clearfix

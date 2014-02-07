@@ -13,5 +13,6 @@
  *= require_tree ./application
  *= require bootstrap
  *= require jasny-bootstrap
+ *= require jquery.hashtags
 
  */
