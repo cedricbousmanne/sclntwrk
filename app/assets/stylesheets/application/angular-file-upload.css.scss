@@ -1,0 +1,21 @@
+.ng-file-over{
+  background: #DEDEDE !important
+}
+
+.row-inline{
+  overflow-y: overlay;
+  ul.assets-list{
+    white-space: nowrap;
+  }
+}
+
+.asset-spinner{
+  background-image: url(asset-path("ajax-loader.gif"));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+}
+.asset-preview{
+  width: 100px !important;
+  height: 100px !important;
+}

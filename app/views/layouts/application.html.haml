@@ -28,5 +28,6 @@
         #sidebar.col-md-4
           = render partial: "activities/recent"
           = render partial: "hashtags/cloud"
+    = yield(:bottom)
     = javascript_tag do
       = yield(:javascript)

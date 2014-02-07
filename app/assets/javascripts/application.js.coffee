@@ -7,9 +7,11 @@
 #= require livestamp
 #= require jquery.autosize.min
 #= require jasny-bootstrap.min
+#= require holder
 
 
 #= require angular
 #= require ./angular/application
+#= require angular-file-upload.min
 
 #= require ./application/main

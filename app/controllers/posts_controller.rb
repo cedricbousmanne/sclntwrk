@@ -4,7 +4,9 @@ class PostsController < ApplicationController
 
   def index
     @post = current_community.posts.new
-    @posts = @posts.order("created_at desc").persisted
+    @posts = @posts.order("created_at desc")
+    @posts = @posts.limit(5)
+    @posts = @posts.persisted
   end
 
   def show
@@ -32,7 +34,10 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    parameters = [:content,
+      :asset_ids => []
+    ]
+    params.require(:post).permit(*parameters)
   end
 
 end

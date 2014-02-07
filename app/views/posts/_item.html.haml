@@ -5,6 +5,7 @@
     %strong.post-author= post.author.display_name
     .post-content-inner
       = simple_format(linkify_hashtags(post.content))
+      = render partial: "assets/list", locals: { assets: post.assets }
     %small.post-meta
       %a.post-meta-add-comment{href: "#"}
         Commenter

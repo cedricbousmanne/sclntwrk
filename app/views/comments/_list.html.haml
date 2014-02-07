@@ -1,4 +1,4 @@
-%div{id: "commentable-#{commentable.class.name.downcase}-#{commentable.id}-container", class: "commentable-container", "ng-controller" => "CommentIndexCtrl"}
+%div{class: "commentable-#{commentable.class.name.downcase}-#{commentable.id}-container commentable-container", "ng-controller" => "CommentIndexCtrl"}
   - if commentable.comments.any?
     - if commentable.comments.size > 2
       - other_comments = commentable.comments.size - 2

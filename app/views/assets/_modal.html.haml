@@ -1,0 +1,10 @@
+.modal.fade{id: "asset-modal-#{asset.id}"}
+  .modal-dialog
+    .modal-content
+      .modal-body
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        = image_tag asset.file.thumb("500x500>").url
+      .modal-footer
+        %div.post-comments{ id: "#modal-publication-#{asset.publication.id}-comments" }
+          = render partial: "comments/list", locals: { commentable: asset.publication }
+          = render partial: "comments/form", locals: { comment: asset.publication.comments.build }

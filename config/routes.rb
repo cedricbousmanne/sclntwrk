@@ -5,14 +5,14 @@ CommunityGreenlabCoworking::Application.routes.draw do
 
   devise_for :users
 
-  resource :profile, only: [:edit, :update]
-
+  resources :assets, only: [:create, :show]
   resources :communities
+  resource :profile, only: [:edit, :update]
   resources :posts, only: [:index, :create, :show] do
     resources :comments, only: [:create]
   end
+
   get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
   get "hashtags",            to: "hashtags#index",     as: :hashtags
-
 
 end
