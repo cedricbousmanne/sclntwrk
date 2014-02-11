@@ -2,5 +2,8 @@
   %h3 Activité récente
   .list-group
   - for activity in recent_activities
-    = link_to post_path(activity.trackable), class: "list-group-item" do
-      = activity.text(owner: activity.owner.display_name, content: activity.trackable.content).html_safe
+    .list-group-item
+      = link_to activity.owner.display_name, activity.owner if activity.owner
+      = render_activity activity
+    / = link_to post_path(activity.trackable), class: "list-group-item" do
+    /   = activity.text(owner: activity.owner.display_name, content: activity.trackable.content).html_safe

@@ -1,0 +1,11 @@
+- if recent_members.present?
+  %h3 Membres récents
+  .list-group
+  - for member in recent_members
+    = link_to member, class: "list-group-item" do
+      = image_tag member.photo.thumb("50x50#").url
+      = member.display_name
+  - if can?(:invite, current_community)
+    = link_to new_user_invitation_path, class: "list-group-item" do
+      %i.glyphicon.glyphicon-plus
+      Inviter un membre

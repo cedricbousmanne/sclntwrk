@@ -1,7 +1,7 @@
 - if communities.any?
   %ul
     - for community in communities
-      = link_to community do
+      = link_to "http://#{community.domain}/posts" do
         %li= community.name
 - else
   .alert.alert-info

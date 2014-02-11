@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   def create
     @comment = commentable.comments.new(comment_params)
     @comment.author = current_user
+    @comment.community = current_community
     @comment.save
     respond_to do |format|
       format.html{

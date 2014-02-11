@@ -14,7 +14,16 @@ CommunityGreenlabCoworking::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => 'sclntwrk-8724b66cb5731305',
+    :password => 'e9132554cb41f43d',
+    :address => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :plain
+  }
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

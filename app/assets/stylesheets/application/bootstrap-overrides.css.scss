@@ -1,4 +1,22 @@
-.modal-footer{
-  margin: 0px !important;
-  padding: 0px !important;
+@import 'application/_mixins';
+@import 'bootstrap/_mixins';
+
+a{
+  cursor: pointer;
+}
+
+.modal-dialog {
+  @include calc(width, "100% - 10px");
+  @include calc(height, "100% - 10px");
+  padding: 0;
+  margin: 5px;
+}
+
+.modal-content {
+  min-height: 100%;
+  border-radius: 0;
+}
+
+.verticaly-resizable{
+  @include resizable("vertical")
 }
