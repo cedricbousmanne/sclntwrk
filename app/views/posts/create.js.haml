@@ -1,3 +1,4 @@
 $(".posts").prepend("#{ j(render partial: 'posts/item', locals: { post: @post }) }")
 $("#post_content").val("").trigger('autosize.resize');
 $("#post_content").hashtagsReset()
+$(document).trigger( "page:load" );

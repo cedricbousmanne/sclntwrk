@@ -2,10 +2,7 @@
   .col-md-1.col-sm-1.hidden-xs.post-author-photo
     = image_tag post.author.photo.thumb('50x50#').url
   .col-md-11.col-sm-11.col-xs-12.post-content
-    %strong.post-author= post.author.display_name
-    .post-content-inner
-      = simple_format(linkify_hashtags(post.content))
-      = render partial: "assets/list", locals: { assets: post.assets }
+    = render partial: "posts/item_inner", locals: { post: post }
     %small.post-meta
       %i.glyphicon.glyphicon-time
       %abbr{ data: { livestamp: post.created_at } }

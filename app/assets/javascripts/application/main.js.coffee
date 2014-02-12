@@ -1,8 +1,6 @@
-window.bindablePlugins = () ->
+ready = ->
   $(".autosize").autosize()
   $("textarea.hashtags").hashtags()
 
-
-$(document).ready () ->
-
-  bindablePlugins()
+$(document).ready(ready)
+$(document).on('page:load', ready)

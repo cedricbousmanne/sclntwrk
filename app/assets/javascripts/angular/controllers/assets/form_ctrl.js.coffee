@@ -1,19 +1,21 @@
 @AssetFormCtrl = [ "$scope", "$fileUploader", "$window", ($scope, $fileUploader, $window) ->
+  $(document).on('ready page:load', ->
+    $scope.assets = []
+    console.log($scope.assets)
 
-  $scope.assets = []
+    uploader = $scope.uploader = $fileUploader.create
+      headers : {
+        'X-CSRF-TOKEN' : $('meta[name=csrf-token]').attr('content')
+      },
+      scope: $scope
+      url: "/assets.json"
+      autoUpload: true
+      removeAfterUpload: true
+      alias: "asset[file]"
 
-  uploader = $scope.uploader = $fileUploader.create
-    headers : {
-      'X-CSRF-TOKEN' : $('meta[name=csrf-token]').attr('content')
-    },
-    scope: $scope
-    url: "/assets.json"
-    autoUpload: true
-    removeAfterUpload: true
-    alias: "asset[file]"
-
-  uploader.bind 'success', (event, xhr, item, response) ->
-    $scope.assets.push(response)
+    uploader.bind 'success', (event, xhr, item, response) ->
+      $scope.assets.push(response)
+  )
 
   $scope.addPost = (el, $event) ->
     $event.preventDefault()
