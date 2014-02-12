@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentsController < PrivateController
   load_and_authorize_resource :through => :current_community, except: :create
   respond_to :json
 

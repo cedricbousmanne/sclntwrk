@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController < PrivateController
   load_and_authorize_resource :through => :current_community, except: :create
   respond_to :json, :js
 

@@ -1,4 +1,4 @@
-class HashtagsController < ApplicationController
+class HashtagsController < PrivateController
 
   def index
     @hashtags = SimpleHashtag::Hashtag.all

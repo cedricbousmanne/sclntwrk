@@ -1,4 +1,4 @@
-class CommunitiesController < ApplicationController
+class CommunitiesController < PrivateController
   load_and_authorize_resource except: :create
 
   def index
