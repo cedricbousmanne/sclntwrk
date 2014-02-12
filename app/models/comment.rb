@@ -6,6 +6,7 @@ class Comment < Publication
           trackable_type: ->(controller, model) { model.type }
 
   validates :content, presence: true
+  validates :community, :author, :commentable, presence: true
 
   belongs_to :commentable, :polymorphic => true
 

@@ -5,4 +5,6 @@ class Community < ActiveRecord::Base
   has_many :assets, -> { extending PersistedExtension }
 
   validates :name, presence: true
+  validates :domain, presence: true, domain: true
+
 end
