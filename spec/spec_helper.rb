@@ -40,9 +40,24 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
   config.include(MailerMacros)
   config.include FactoryGirl::Syntax::Methods
+
   config.before(:each) { reset_email }
   config.before(:all) { DeferredGarbageCollection.start }
   config.after(:all) { DeferredGarbageCollection.reconsider }
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

@@ -11,7 +11,7 @@ class CommunitiesController < PrivateController
     @community = Community.new(community_params)
     if @community.save
       @community.users << current_user
-      current_user.add_role, @community
+      current_user.add_role :creator, @community
       redirect_to @community, notice: "Votre communauté a été créée avec succès"
     else
       render :new

@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
     return "#{email}"
   end
 
+  private
+
   def photo_fallback
     File.open(File.join(Rails.root, "app", "assets", "images", "default-avatar.png"))
   end

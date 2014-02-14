@@ -4,5 +4,6 @@ FactoryGirl.define do
   factory :community do
     name "MyString"
     private false
+    domain "mydomain.com"
   end
 end
