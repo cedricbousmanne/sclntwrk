@@ -5,4 +5,4 @@
   = link_to 'Voir plus de publications', posts_path(:page => @posts.next_page), :class => 'load-more-posts', :remote => true if @posts.next_page
 - else
   .alert.alert-info
-    Il n'y a aucune publication dans cette communauté
+    Il n'y a aucune publication à afficher
