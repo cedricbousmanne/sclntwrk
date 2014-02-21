@@ -1,4 +1,4 @@
 - if popular_hashtags.present?
   %h3 Sujets populaires
   - for hashtag in popular_hashtags
-    = link_to "##{hashtag.name}", hashtag_path(hashtag.name)
+    = link_to "##{hashtag.name} (#{hashtag.count})", hashtag_path(hashtag.name)

@@ -6,7 +6,7 @@ class PrivateController < ApplicationController
   layout 'application'
 
   def popular_hashtags
-    @popular_hashtags ||= current_community.posts.includes(:hashtags).map(&:hashtags).flatten.uniq
+    @popular_hashtags = PopularHashtags.new(current_community).order_by_popularity
   end
 
   def recent_activities
