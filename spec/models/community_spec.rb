@@ -26,6 +26,7 @@ describe Community do
     build(:community, domain: "foo.com"                         ).should have(0).error_on(:domain)
     build(:community, domain: "www.foo.com"                     ).should have(0).error_on(:domain)
     build(:community, domain: "community.greenlab-coworking.com").should have(0).error_on(:domain)
+    build(:community, domain: "test1.com"                       ).should have(0).error_on(:domain)
 
   end
 end

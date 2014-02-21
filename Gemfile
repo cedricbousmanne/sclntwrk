@@ -38,6 +38,7 @@ group :development do
   gem 'rails_layout'
   gem 'bullet'
   gem 'lol_dba'
+  gem 'rubocop'
 end
 
 group :development, :test do

@@ -7,6 +7,6 @@ class DomainValidator < ActiveModel::EachValidator
   # not actually be valid, so this checks for both.
   def url_valid?(domain)
     return unless domain
-    domain.match(/^([a-zA-Z\-])+(\.([a-zA-Z\-])+)+$/)
+    domain.match(/^([a-zA-Z0-9\-])+(\.([a-zA-Z0-9\-])+)+$/)
   end
 end

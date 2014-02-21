@@ -24,7 +24,7 @@ describe User do
     post_two   = create(:post, content: "content", author: user_one, community: community_one)
     post_three = create(:post, content: "content", author: user_two, community: community_one)
 
-    user_one.posts.all.should eq([post_one, post_two])
+    user_one.posts.should eq([post_one, post_two])
   end
 
   it "has many comments" do

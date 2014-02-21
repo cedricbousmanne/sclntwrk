@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    email "foo@gmail.com"
+    sequence :email do |n|
+      "person#{n}@example.com"
+    end
     password "MagicPassword"
     after(:create){|user|
       community = create(:community)

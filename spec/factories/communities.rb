@@ -2,8 +2,12 @@
 
 FactoryGirl.define do
   factory :community do
-    name "MyString"
-    private false
-    domain "mydomain.com"
+    sequence :name do |n|
+      "My community ##{n}"
+    end
+
+    sequence :domain do |n|
+      "example#{n}.com"
+    end
   end
 end

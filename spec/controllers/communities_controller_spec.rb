@@ -3,12 +3,6 @@ require 'spec_helper'
 describe CommunitiesController do
   login_user
   render_views
-  # describe "GET 'index'" do
-  #   it "returns http success" do
-  #     get 'index'
-  #     response.should be_success
-  #   end
-  # end
 
   describe "GET 'new'" do
     it "returns http success" do
@@ -24,27 +18,14 @@ describe CommunitiesController do
   describe "POST 'create'" do
     it "returns http success" do
       expect{
-        post 'create', community: {name: "My new Community", private: false}
+        post 'create', community: build(:community).attributes
       }.to change{ Community.count }.by(1)
 
-      community = assign[:community]
+      community = assigns[:community]
 
-      raise community.inspect
+      @current_user.roles.where(name: "creator", resource_type: "Community", resource_id: community.id).size.should eq(1)
+
     end
   end
-
-  # describe "GET 'edit'" do
-  #   it "returns http success" do
-  #     get 'edit'
-  #     response.should be_success
-  #   end
-  # end
-
-  # describe "GET 'destroy'" do
-  #   it "returns http success" do
-  #     get 'destroy'
-  #     response.should be_success
-  #   end
-  # end
 
 end

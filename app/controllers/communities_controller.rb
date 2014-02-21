@@ -32,6 +32,6 @@ class CommunitiesController < PrivateController
   private
 
   def community_params
-    params.require(:community).permit(:name, :private)
+    params.require(:community).permit(:name, :private, :domain)
   end
 end
