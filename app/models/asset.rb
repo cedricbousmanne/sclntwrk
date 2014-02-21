@@ -4,5 +4,5 @@ class Asset < ActiveRecord::Base
   belongs_to :publication
   dragonfly_accessor :file
 
-  validates :community, :author, :publication, presence: true
+  validates :community, :author, presence: true
 end

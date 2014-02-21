@@ -43,6 +43,8 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'simplecov', '~> 0.7.1'
+
 end
 
 group :test do

@@ -1,8 +1,9 @@
+# PrivateController
 class PrivateController < ApplicationController
   before_filter :authenticate_user!
   helper_method :popular_hashtags, :recent_activities, :recent_members
   include Concerns::Members
-  layout "application"
+  layout 'application'
 
   def popular_hashtags
     @popular_hashtags ||= current_community.posts.includes(:hashtags).map(&:hashtags).flatten.uniq

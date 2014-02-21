@@ -43,6 +43,11 @@ RSpec.configure do |config|
 
   config.include(MailerMacros)
   config.include FactoryGirl::Syntax::Methods
+  config.include Rails.application.routes.url_helpers
+  config.include Capybara::DSL
+  config.include Devise::TestHelpers, :type => :controller
+
+  config.extend ControllerMacros, :type => :controller
 
   config.before(:each) { reset_email }
   config.before(:all) { DeferredGarbageCollection.start }

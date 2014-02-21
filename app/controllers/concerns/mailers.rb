@@ -11,7 +11,7 @@ module Concerns
     end
 
     def default_host
-      if defined?(current_community)
+      if defined?(current_community) && !current_community.nil?
         current_community.domain
       else
         CONFIG[:host]

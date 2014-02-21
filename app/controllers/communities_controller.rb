@@ -1,3 +1,4 @@
+# CommunitiesController : nodoc
 class CommunitiesController < PrivateController
   load_and_authorize_resource except: :create
 
@@ -12,7 +13,7 @@ class CommunitiesController < PrivateController
     if @community.save
       @community.users << current_user
       current_user.add_role :creator, @community
-      redirect_to @community, notice: "Votre communauté a été créée avec succès"
+      redirect_to @community, notice: 'Votre communauté a été créée avec succès'
     else
       render :new
     end

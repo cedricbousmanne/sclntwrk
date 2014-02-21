@@ -1,3 +1,4 @@
+# AssetsController : nodoc
 class AssetsController < ApplicationController
   respond_to :json
 
@@ -9,7 +10,7 @@ class AssetsController < ApplicationController
   end
 
   def show
-    @asset = current_community.assets.find(param[:id])
+    @asset = current_community.assets.find(params[:id])
     respond_with @asset
   end
 

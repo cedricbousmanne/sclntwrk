@@ -1,5 +1,6 @@
+# CommentsController : nodoc
 class CommentsController < PrivateController
-  load_and_authorize_resource :through => :current_community, except: :create
+  load_and_authorize_resource through: :current_community, except: :create
   respond_to :json
 
   def create
@@ -8,16 +9,14 @@ class CommentsController < PrivateController
     @comment.community = current_community
     @comment.save
     respond_to do |format|
-      format.html{
+      format.html do
         if @comment.save
-          redirect_to :back, :notice => "Votre commentaire a été publié"
+          redirect_to :back, notice: 'Votre commentaire a été publié'
         else
           render :new
         end
-      }
-      format.js{
-
-      }
+      end
+      format.js {}
     end
   end
 

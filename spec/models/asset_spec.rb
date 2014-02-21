@@ -7,7 +7,7 @@ describe Asset do
   it "validates presence of author" do
     build(:asset, author: nil).should have(1).error_on(:author)
   end
-  it "validates presence of publication" do
-    build(:asset, publication: nil).should have(1).error_on(:publication)
+  it "not validates presence of publication" do
+    build(:asset, publication: nil).should_not have(1).error_on(:publication)
   end
 end

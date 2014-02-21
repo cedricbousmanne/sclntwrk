@@ -1,3 +1,4 @@
+# HashtagsController : nodoc
 class HashtagsController < PrivateController
 
   def index
