@@ -1,7 +1,6 @@
 @AssetFormCtrl = [ "$scope", "$fileUploader", "$window", ($scope, $fileUploader, $window) ->
   $(document).on('ready page:load', ->
     $scope.assets = []
-    console.log($scope.assets)
 
     uploader = $scope.uploader = $fileUploader.create
       headers : {

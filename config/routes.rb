@@ -1,7 +1,11 @@
 CommunityGreenlabCoworking::Application.routes.draw do
 
-
-  root 'pages#index'
+  authenticated :user do
+    root 'posts#index', as: :authenticated_root
+  end
+  unauthenticated do
+    root 'pages#index'
+  end
 
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
 
