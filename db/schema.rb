@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209104801) do
+ActiveRecord::Schema.define(version: 20140222153715) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140209104801) do
     t.string  "hashtaggable_type"
   end
 
+  add_index "simple_hashtag_hashtaggings", ["hashtag_id", "hashtaggable_id"], name: "index_simple_hashtaggings_on_id_and_hashtagging_id", using: :btree
   add_index "simple_hashtag_hashtaggings", ["hashtag_id"], name: "index_simple_hashtag_hashtaggings_on_hashtag_id", using: :btree
   add_index "simple_hashtag_hashtaggings", ["hashtaggable_id", "hashtaggable_type"], name: "index_hashtaggings_hashtaggable_id_hashtaggable_type", using: :btree
 
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(version: 20140209104801) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invited_by_id", "invited_by_type"], name: "index_users_on_invited_by_id_and_invited_by_type", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "users_roles", id: false, force: true do |t|
