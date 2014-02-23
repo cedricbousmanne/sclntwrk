@@ -4,6 +4,6 @@ class UsersController < PrivateController
   respond_to :json
 
   def show
-    @posts = @user.posts.in_community(current_community).page(params[:page])
+    @posts = @user.posts.in_community(current_community).page(params[:page]).order("created_at desc")
   end
 end
