@@ -3,7 +3,6 @@
     $scope.setupUploader()
 
   $scope.setupUploader = () ->
-    console.log("setupUploader")
     $scope.assets = []
 
     uploader = $scope.uploader = $fileUploader.create

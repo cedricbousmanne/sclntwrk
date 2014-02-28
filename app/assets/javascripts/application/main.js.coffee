@@ -1,10 +1,6 @@
 pageLoad = ->
   $(".autosize").autosize()
   $("textarea.hashtags").hashtags()
-  console.log("pageLoad")
-
-# $(document).ready(ready)
-# $(document).on('page:load', ready)
 
 head ->
   $ ->
