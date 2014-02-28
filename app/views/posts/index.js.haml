@@ -1,5 +1,5 @@
 $('.posts').append('#{escape_javascript(render partial: "posts/list_inner", :locals => { :posts => @posts })}');
 $('a.load-more-posts').attr('href', '#{posts_path page: @posts.next_page}');
-$(document).trigger( "page:change" );
+$(document).trigger( "page:load" );
 - unless @posts.next_page
   $('a.load-more-posts').remove();
