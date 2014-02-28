@@ -1,5 +1,9 @@
 @AssetFormCtrl = [ "$scope", "$fileUploader", "$window", ($scope, $fileUploader, $window) ->
-  $(document).on('ready page:load', ->
+  $(document).on('ready page:load page:change page:restore page:update', ->
+    $scope.setupUploader()
+
+  $scope.setupUploader = () ->
+    console.log("setupUploader")
     $scope.assets = []
 
     uploader = $scope.uploader = $fileUploader.create
@@ -15,7 +19,6 @@
     uploader.bind 'success', (event, xhr, item, response) ->
       $scope.assets.push(response)
   )
-
   $scope.addPost = (el, $event) ->
     $event.preventDefault()
     form = $($event.currentTarget)
