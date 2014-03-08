@@ -1,0 +1,2 @@
+collection @activities
+attribute :id
