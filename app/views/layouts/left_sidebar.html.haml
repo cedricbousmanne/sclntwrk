@@ -1,12 +1,10 @@
 = render partial: "layouts/shared/head"
 %body{:"ng-controller" => content_for?(:angular_controller) ? yield(:angular_controller) : nil }
   = render partial: "shared/navbar"
-  .container-fluid
-    .row
+  .container
+    .row-fluid
       .col-md-2
         = render partial: "layouts/shared/sidebars/left"
-      .col-md-7
+      .col-md-10
         = yield()
-      #sidebar.col-md-3
-        = render partial: "layouts/shared/sidebars/right"
 = render partial: "layouts/shared/foot"

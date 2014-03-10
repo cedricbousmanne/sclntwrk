@@ -1,9 +1,10 @@
-%h1 Mon profil
+.page-header
+  %h1 Mon profil
 = simple_form_for(@user, url: profile_path(@user), html: { multipart: true }) do |f|
-  .col-md-4
+  .col-md-3
     .fileinput.fileinput-new{"data-provides" => "fileinput"}
-      .fileinput-new.thumbnail{style: "width: 200px; height: 150px;"}
-        = image_tag current_user.photo.thumb('150x200#').url
+      .fileinput-new.thumbnail{style: "width: 150px; height: 150px;"}
+        = image_tag current_user.photo.thumb('150x150#').url
       .fileinput-preview.fileinput-exists.thumbnail{style: "max-width: 200px; max-height: 150px;"}
       %div
         %span.btn.btn-default.btn-file
@@ -11,9 +12,14 @@
           %span.fileinput-exists Modifier
           %input{name: "user[photo]", type: "file"}/
         %a.btn.btn-default.fileinput-exists{"data-dismiss" => "fileinput", href: "#"} Supprimer
-  .col-md-8
+  .col-md-9
     = f.input :firstname
     = f.input :lastname
+    = f.input :headline
   .clearfix
+
+  .col-md-12
+    = f.input :phone_number
+    = f.input :mobile_number, input_html: { class: "tel" }
 
   = f.submit "Mise à jour de mon profil", class: "btn btn-lg btn-success"

@@ -25,6 +25,7 @@ gem 'dragonfly-s3_data_store',         '1.0.3'
 gem 'unf',                             '0.1.3'
 gem 'angular-gem',                     '1.2.1'
 gem 'will_paginate',                   '3.0.5'
+gem 'phony_rails',                     '0.6.1'
 
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'
@@ -54,4 +55,3 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
 end
-

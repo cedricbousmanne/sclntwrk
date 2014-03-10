@@ -1,0 +1,20 @@
+%table.table
+  %thead
+    %tr
+      %th Nom
+      %th Prénom
+      %th Email
+      %th Téléphone
+      %th Mobile
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.firstname
+        %td= user.lastname
+        %td= user.email
+        %td= user.phone_number.phony_formatted(:format => :international) if user.phone_number.present?
+        %td= user.mobile_number.phony_formatted(:format => :international) if user.mobile_number.present?
+        %td
+          = link_to user, class: "btn btn-default" do
+            %i.glyphicon.glyphicon-user

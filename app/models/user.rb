@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
 
   include PublicActivity::Common
 
+  phony_normalize :phone_number,  :default_country_code => 'BE'
+  phony_normalize :mobile_number, :default_country_code => 'BE'
+  validates_plausible_phone :phone_number
+  validates_plausible_phone :mobile_number
+
+
   def display_name
     return "#{firstname} #{lastname}" if firstname.present? && lastname.present?
     return "#{firstname}"             if firstname.present?

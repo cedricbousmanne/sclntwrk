@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222153715) do
+ActiveRecord::Schema.define(version: 20140310133750) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -133,6 +133,9 @@ ActiveRecord::Schema.define(version: 20140222153715) do
     t.string   "photo_uid"
     t.string   "photo"
     t.integer  "invitations_count"
+    t.string   "phone_number"
+    t.string   "mobile_number"
+    t.string   "headline"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

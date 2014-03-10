@@ -17,6 +17,6 @@ class ProfilesController < PrivateController
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :photo)
+    params.require(:user).permit(:firstname, :lastname, :photo, :mobile_number, :phone_number, :headline)
   end
 end

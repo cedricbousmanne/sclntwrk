@@ -18,6 +18,7 @@ CommunityGreenlabCoworking::Application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  get "directory",           to: "directory#index",    as: :directory
   get "hashtags/:hashtag",   to: "hashtags#show",      as: :hashtag
   get "hashtags",            to: "hashtags#index",     as: :hashtags
 

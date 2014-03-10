@@ -1,5 +1,5 @@
 fr:
-  hello: "Salut"
   activity:
     post:
       create: "<strong>%{owner} a publié</strong><br>%{content}"
+  

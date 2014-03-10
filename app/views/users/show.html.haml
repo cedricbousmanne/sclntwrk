@@ -4,17 +4,22 @@
       = image_tag @user.photo.thumb("80x80#").url, class: "media-object"
     .media-body
       %h4.media-heading= @user.display_name
+      - if @user.headline.present?
+        %p
+          %strong
+            = @user.headline
+
       %p
         %span.label.label-info= "#{@user.posts.in_community(current_community).count} publications"
         %span.label.label-primary= "#{@user.comments.in_community(current_community).count} commentaires"
-      %p
-        %a.btn.btn-xs.btn-default{href: "#"}
-          %span.glyphicon.glyphicon-comment
-          Message
-        %a.btn.btn-xs.btn-default{href: "#"}
-          %span.glyphicon.glyphicon-heart
-          Favorite
-        %a.btn.btn-xs.btn-default{href: "#"}
-          %span.glyphicon.glyphicon-ban-circle
-          Unfollow
+      / %p
+      /   %a.btn.btn-xs.btn-default{href: "#"}
+      /     %span.glyphicon.glyphicon-comment
+      /     Message
+      /   %a.btn.btn-xs.btn-default{href: "#"}
+      /     %span.glyphicon.glyphicon-heart
+      /     Favorite
+      /   %a.btn.btn-xs.btn-default{href: "#"}
+      /     %span.glyphicon.glyphicon-ban-circle
+      /     Unfollow
 = render partial: "posts/list", locals: { posts: @posts }
