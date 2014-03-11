@@ -2,14 +2,14 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+CONFIG = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/application.yml")[Rails.env]
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
 module CommunityGreenlabCoworking
   class Application < Rails::Application
-
-    CONFIG = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/application.yml")[Rails.env]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
