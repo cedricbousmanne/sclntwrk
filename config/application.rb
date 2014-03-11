@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env)
 module CommunityGreenlabCoworking
   class Application < Rails::Application
 
-    CONFIG = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/../../config/application.yml")[Rails.env]
+    CONFIG = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/config/application.yml")[Rails.env]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
