@@ -31,6 +31,10 @@ gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'html2haml'
