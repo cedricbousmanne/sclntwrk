@@ -1,9 +1,9 @@
-%ul.nav
-  %li
+%ul.nav.nav-pills.nav-stacked
+  %li{ class: current_section == 'home' ? 'active' : nil }
     = link_to root_url do
       %i.glyphicon.glyphicon-home
       Accueil
-  %li
+  %li{ class: current_section == 'directory' ? 'active' : nil }
     = link_to directory_url do
       %i.glyphicon.glyphicon-user
       Répertoire

@@ -20,3 +20,15 @@ a{
 .verticaly-resizable{
   @include resizable("vertical")
 }
+
+.page-header{
+  margin-top: 0px;
+}
+
+#sidebar h3:first-child{
+  margin-top: 0px;
+}
+
+#sidebar {
+  overflow: hidden
+}
