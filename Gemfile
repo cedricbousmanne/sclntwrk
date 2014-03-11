@@ -30,6 +30,8 @@ gem 'phony_rails',                     '0.6.1'
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'
 
+gem 'unicorn',                 '4.8.2'
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
