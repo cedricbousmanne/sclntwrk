@@ -33,6 +33,7 @@ gem 'rabl',                    '0.8.6'
 gem 'unicorn',                 '4.8.2'
 gem 'asset_sync'
 gem 'bugsnag'
+gem 'customerio'
 
 group :development do
   gem 'capistrano'

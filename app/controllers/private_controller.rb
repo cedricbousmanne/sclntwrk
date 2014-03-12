@@ -1,6 +1,6 @@
 # PrivateController
 class PrivateController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :update_customerio
   helper_method :popular_hashtags, :recent_activities, :recent_members, :current_section
   include Concerns::Members
   layout 'application'
@@ -21,5 +21,20 @@ class PrivateController < ApplicationController
     else
       ""
     end
+  end
+
+  private
+
+  def customerio
+    Customerio::Client.new(CONFIG[:customerio][:id], CONFIG[:customerio][:key])
+  end
+
+  def update_customerio
+    customerio.identify(
+      id:         current_user.id,
+      email:      current_user.email,
+      created_at: current_user.created_at,
+      first_name: current_user.firstname
+    )
   end
 end

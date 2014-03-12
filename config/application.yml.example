@@ -11,6 +11,9 @@ defaults: &DEFAULTS
   mandrill:
     login: "user@domain.tld"
     key: "secret"
+  customerio:
+    id: customerio-id
+    key: customerio-key
 
 development:
   <<: *DEFAULTS
