@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   private
 
   def photo_fallback
-    File.open(File.join(Rails.root, "app", "assets", "images", "default-avatar.png"))
+    ActionController::Base.helpers.asset_path("default-avatar.png")
   end
 
   def force_photo_fallback
