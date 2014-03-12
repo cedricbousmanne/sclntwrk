@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312151642) do
+ActiveRecord::Schema.define(version: 20140312153402) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -52,9 +52,10 @@ ActiveRecord::Schema.define(version: 20140312151642) do
     t.string   "domain"
   end
 
-  create_table "community_user_links", id: false, force: true do |t|
-    t.integer "community_id"
-    t.integer "user_id"
+  create_table "community_user_links", force: true do |t|
+    t.integer  "community_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
   end
 
   add_index "community_user_links", ["community_id", "user_id"], name: "index_community_user_links_on_community_id_and_user_id", using: :btree
