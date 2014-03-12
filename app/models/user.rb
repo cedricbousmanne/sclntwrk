@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
-  has_and_belongs_to_many :communities
   dragonfly_accessor :photo
+
+  has_many :community_user_links, inverse_of: :user
+  has_many :communities, through: :community_user_links, inverse_of: :users
+
   has_many :publications, foreign_key: :author_id
   has_many :posts, foreign_key: :author_id
   has_many :comments, foreign_key: :author_id

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310133750) do
+ActiveRecord::Schema.define(version: 20140312151642) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20140310133750) do
     t.string   "domain"
   end
 
-  create_table "communities_users", id: false, force: true do |t|
+  create_table "community_user_links", id: false, force: true do |t|
     t.integer "community_id"
     t.integer "user_id"
   end
 
-  add_index "communities_users", ["community_id", "user_id"], name: "index_communities_users_on_community_id_and_user_id", using: :btree
-  add_index "communities_users", ["user_id", "community_id"], name: "index_communities_users_on_user_id_and_community_id", using: :btree
+  add_index "community_user_links", ["community_id", "user_id"], name: "index_community_user_links_on_community_id_and_user_id", using: :btree
+  add_index "community_user_links", ["user_id", "community_id"], name: "index_community_user_links_on_user_id_and_community_id", using: :btree
 
   create_table "publications", force: true do |t|
     t.text     "content"

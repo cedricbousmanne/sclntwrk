@@ -1,6 +1,7 @@
 class Community < ActiveRecord::Base
   resourcify
-  has_and_belongs_to_many :users
+  has_many :community_user_links, inverse_of: :community
+  has_many :users, through: :community_user_links, inverse_of: :communities
   has_many :posts, -> { extending PersistedExtension }
   has_many :assets, -> { extending PersistedExtension }
 
