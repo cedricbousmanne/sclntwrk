@@ -1,5 +1,6 @@
-- flash.each do |kind, message|
-  %div.alert.alert-success.notification.fade.in{class: kind}
-    %button.close(type="button" data-dismiss="alert" aria-hidden=true) &times;
-    %p
-      = message
+.container-fluid
+  - flash.each do |kind, message|
+    %div.alert.alert-success.notification.fade.in{class: kind}
+      %button.close(type="button" data-dismiss="alert" aria-hidden=true) &times;
+      %p
+        = message
