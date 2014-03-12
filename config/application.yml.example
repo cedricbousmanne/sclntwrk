@@ -7,6 +7,7 @@ defaults: &DEFAULTS
     bucket: my-project-development
     access_key_id: aws-key-id
     secret_access_key: aws-secret-access-key
+    asset_host: my-project-development.s3.amazonaws.com
   mandrill:
     login: "user@domain.tld"
     key: "secret"
