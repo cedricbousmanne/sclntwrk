@@ -40,3 +40,5 @@ server '146.185.158.196', user: 'deploy', roles: %w{web app}, port: 11422
 
 set :deploy_to, '/home/deploy/production/sclntwrk/'
 set :rails_env, 'production'
+
+load "config/recipes/unicorn.rb"
