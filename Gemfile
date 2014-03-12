@@ -32,6 +32,10 @@ gem 'rabl',                    '0.8.6'
 
 gem 'unicorn',                 '4.8.2'
 
+group :assets do
+  gem 'asset_sync'
+end
+
 group :development do
   gem 'capistrano'
   gem 'capistrano-rails'

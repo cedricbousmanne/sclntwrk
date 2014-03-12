@@ -30,6 +30,9 @@ GEM
       coffee-script (~> 2.2.0)
       railties (>= 3.1)
     arel (4.0.1)
+    asset_sync (1.0.0)
+      activemodel
+      fog (>= 1.8.0)
     ast (1.1.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -323,6 +326,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-gem (= 1.2.1)
+  asset_sync
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
