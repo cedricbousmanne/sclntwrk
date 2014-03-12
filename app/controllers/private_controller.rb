@@ -34,7 +34,9 @@ class PrivateController < ApplicationController
       id:         current_user.id,
       email:      current_user.email,
       created_at: current_user.created_at,
-      first_name: current_user.firstname
+      first_name: current_user.firstname,
+      last_name:  current_user.lastname,
+      logged_in_at: Time.now
     )
   end
 end
