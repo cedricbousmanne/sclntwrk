@@ -59,6 +59,9 @@ namespace :deploy do
 
 end
 
+set :unicorn_pid,    File.join(File.dirname(__FILE__), "../tmp/pid/unicorn.pid")
+set :unicorn_config, File.join(File.dirname(__FILE__), "/unicorn.rb")
+
 namespace :unicorn do
   desc 'Stop Unicorn'
   task :stop do
@@ -96,3 +99,6 @@ namespace :unicorn do
   before :restart, :stop
   before :restart, :start
 end
+
+after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:restart'   # app preloaded

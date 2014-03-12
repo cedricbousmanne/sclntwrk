@@ -39,3 +39,4 @@ server '146.185.158.196', user: 'deploy', roles: %w{web app}, port: 11422
 # setting per server overrides global ssh_options
 
 set :deploy_to, '/home/deploy/production/sclntwrk/'
+set :environment, 'production'
