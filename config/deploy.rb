@@ -59,7 +59,7 @@ namespace :deploy do
 
 end
 
-set :unicorn_pid,    File.join(File.dirname(__FILE__), "../tmp/pid/unicorn.pid")
+set :unicorn_pid,    File.join(File.dirname(__FILE__), "../tmp/pids/unicorn.pid")
 set :unicorn_config, File.join(File.dirname(__FILE__), "/unicorn.rb")
 
 namespace :unicorn do

@@ -39,4 +39,4 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 # setting per server overrides global ssh_options
 
 set :deploy_to, '/home/deploy/staging/sclntwrk/'
-set :environment, 'staging'
+set :rails_env, 'staging'
