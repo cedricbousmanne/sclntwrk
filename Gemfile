@@ -12,7 +12,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass',                  '>= 3.0.0.0'
 gem 'cancan',                          '1.6.10'
 gem 'devise',                          '3.2.2'
-gem 'devise_invitable',                '1.3.3'
+gem 'devise_invitable',                '1.3.4', git: "git@github.com:cedricbousmanne/devise_invitable.git", branch: "french-translation", ref: "872cc22"
+# gem 'devise_invitable',                path: "/Users/cedric/Code/devise_invitable", branch: "french-translation"
 gem 'figaro',                          '0.7.0'
 gem 'haml-rails',                      '0.5.3'
 gem 'mysql2',                          '0.3.15'
@@ -26,6 +27,7 @@ gem 'unf',                             '0.1.3'
 gem 'angular-gem',                     '1.2.1'
 gem 'will_paginate',                   '3.0.5'
 gem 'phony_rails',                     '0.6.1'
+gem 'roadie',                          '2.4.3'
 
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'

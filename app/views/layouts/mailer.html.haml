@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag    "application", media: "all"
+
+  %body
+    .container
+      .row
+        .col-md-12
+          = render partial: "layouts/shared/mailer/header"
+          = yield()
+          = render partial: "layouts/shared/mailer/footer"
