@@ -11,6 +11,12 @@
           %i.glyphicon.glyphicon-user
           Modifier mon profil
       %li.divider
+      - if can?(:manage, current_community)
+        %li
+          = link_to edit_community_path(current_community) do
+            %i.glyphicon.glyphicon-cog
+            Configuration de la communauté
+        %li.divider
       %li
         = link_to destroy_user_session_path, method: "delete" do
           %i.glyphicon.glyphicon-log-out

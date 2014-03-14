@@ -28,4 +28,20 @@ describe CommunitiesController do
     end
   end
 
+  describe "GET 'edit'" do
+    it "returns http success for creator" do
+      post 'create', community: build(:community).attributes
+      community = assigns[:community]
+      get 'edit', id: community.id
+      response.should be_success
+    end
+
+    it "raises CanCan::AccessDenied for non-creator" do
+      community = FactoryGirl.create(:community)
+      expect{
+        get 'edit', id: community.id
+      }.to raise_error(CanCan::AccessDenied)
+    end
+  end
+
 end

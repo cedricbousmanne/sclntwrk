@@ -19,11 +19,14 @@ fr:
         phone_number: 'Téléphone'
         mobile_number: 'GSM'
         headline: Accroche
+        name: Nom
       user:
         new:
           email: 'E-mail to sign in.'
         edit:
           email: 'E-mail.'
+      community:
+        private: Communauté privée
     hints:
       defaults:
         phone_number: 'Format international : 32498000000'

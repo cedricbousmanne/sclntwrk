@@ -6,7 +6,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     can :create, Community
-    can :invite, Community, user.communities do |c|
+    can [:invite, :manage], Community, user.communities do |c|
       user.has_role?(:creator, c)
     end
 

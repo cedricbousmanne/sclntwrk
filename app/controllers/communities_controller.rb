@@ -22,16 +22,21 @@ class CommunitiesController < PrivateController
   def edit
   end
 
-  def destroy
-  end
-
-  def show
-
+  def update
+    if @community.update_attributes(update_community_params)
+      redirect_to edit_community_path(@community), notice: 'Votre communauté a été mise à jour'
+    else
+      render :edit
+    end
   end
 
   private
 
   def community_params
     params.require(:community).permit(:name, :private, :domain)
+  end
+
+  def update_community_params
+    params.require(:community).permit(:name, :private, :domain, :logo)
   end
 end

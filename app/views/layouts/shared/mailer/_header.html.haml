@@ -1,1 +1,8 @@
-%h1 Community
+- if @current_community.present?
+  - if @current_community.logo.present?
+    = image_tag @current_community.logo.thumb('x30>').url
+    %hr
+  - else
+    = @current_community.name
+- else
+  %h1 Community

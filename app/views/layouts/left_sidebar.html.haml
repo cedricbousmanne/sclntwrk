@@ -1,6 +1,7 @@
 = render partial: "layouts/shared/head"
 %body{:"ng-controller" => content_for?(:angular_controller) ? yield(:angular_controller) : nil }
   = render partial: "shared/navbar"
+  = render partial: "shared/flash_message"
   .container-fluid
     .row-fluid
       .col-md-2
