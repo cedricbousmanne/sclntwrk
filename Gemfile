@@ -29,6 +29,9 @@ gem 'will_paginate',                   '3.0.5'
 gem 'phony_rails',                     '0.6.1'
 gem 'roadie',                          '2.4.3'
 gem 'sidekiq',                         '2.17.7'
+gem 'premailer-rails',                 '1.7.0'
+gem 'nokogiri',                        '1.6.1'
+
 
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'
