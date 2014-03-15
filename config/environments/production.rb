@@ -94,5 +94,5 @@ CommunityGreenlabCoworking::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.roadie.provider = Roadie::FilesystemProvider.new(Rails.root, "public")
+  config.roadie.provider = Roadie::FilesystemProvider.new(Rails.root.join("public/assets"))
 end
