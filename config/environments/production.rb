@@ -50,6 +50,8 @@ CommunityGreenlabCoworking::Application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+  config.logger       = Logger.new(Rails.root.join('log', "production.log"), 3, 10485760)
+  config.logger.level = Logger::ERROR
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
