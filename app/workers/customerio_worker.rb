@@ -7,10 +7,10 @@ class CustomerioWorker
     customerio.identify(
       id:           user.id,
       email:        user.email,
-      created_at:   user.created_at,
+      created_at:   user.created_at.to_s(:db),
       first_name:   user.firstname,
       last_name:    user.lastname,
-      logged_in_at: Time.now
+      logged_in_at: Time.now.to_s(:db)
     )
   end
 end
