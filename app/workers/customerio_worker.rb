@@ -1,6 +1,5 @@
 class CustomerioWorker
   include Sidekiq::Worker
-  sidekiq_options queue: "low"
 
   def perform(user_id)
     customerio = Customerio::Client.new(CONFIG[:customerio][:id], CONFIG[:customerio][:key])
