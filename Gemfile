@@ -28,6 +28,7 @@ gem 'angular-gem',                     '1.2.1'
 gem 'will_paginate',                   '3.0.5'
 gem 'phony_rails',                     '0.6.1'
 gem 'roadie',                          '2.4.3'
+gem 'sidekiq',                         '2.17.7'
 
 gem 'haml_coffee_assets',      '1.12.0'
 gem 'rabl',                    '0.8.6'
@@ -63,6 +64,8 @@ end
 group :test do
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-migrate'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
 end

@@ -25,18 +25,7 @@ class PrivateController < ApplicationController
 
   private
 
-  def customerio
-    Customerio::Client.new(CONFIG[:customerio][:id], CONFIG[:customerio][:key])
-  end
-
   def update_customerio
-    customerio.identify(
-      id:         current_user.id,
-      email:      current_user.email,
-      created_at: current_user.created_at,
-      first_name: current_user.firstname,
-      last_name:  current_user.lastname,
-      logged_in_at: Time.now
-    )
+    CustomerioWorker.perform_async(current_user.id)
   end
 end
