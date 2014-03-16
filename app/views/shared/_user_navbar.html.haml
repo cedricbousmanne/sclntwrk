@@ -16,6 +16,10 @@
           = link_to edit_community_path(current_community) do
             %i.glyphicon.glyphicon-cog
             Configuration de la communauté
+        %li
+          = link_to members_path() do
+            %i.glyphicon.glyphicon-list
+            Gestion des membres
         %li.divider
       %li
         = link_to destroy_user_session_path, method: "delete" do
