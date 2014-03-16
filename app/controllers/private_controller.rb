@@ -6,11 +6,11 @@ class PrivateController < ApplicationController
   layout 'application'
 
   def popular_hashtags
-    @popular_hashtags = PopularHashtags.new(current_community).order_by_popularity
+    @popular_hashtags = PopularHashtags.new(current_community).limit(5).order_by_popularity
   end
 
   def recent_activities
-    @recent_activities ||= PublicActivity::Activity.where(community_id: current_community.id).order("created_at desc").includes(:owner, :trackable).limit(10)
+    @recent_activities ||= PublicActivity::Activity.where(community_id: current_community.id).order("created_at desc").includes(:owner, :trackable).limit(5)
   end
 
   def current_section
