@@ -37,5 +37,13 @@ describe PopularHashtags do
       hashtags[2].count.should eq(1)
     end
 
+    it "limit the number of popular hashtags" do
+      hashtags = @popular_hashtags.limit(1).order_by_popularity
+      hashtags.size.should eq(1)
+
+      hashtags = @popular_hashtags.limit(2).order_by_popularity
+      hashtags.size.should eq(2)
+    end
+
   end
 end
