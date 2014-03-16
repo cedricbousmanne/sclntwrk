@@ -1,23 +1,28 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, community)
 
     user ||= User.new # guest user (not logged in)
 
+
     can :create, Community
-    can [:invite, :manage], Community, user.communities do |c|
-      user.has_role?(:creator, c)
+
+    if user.enabled_in_community?(community)
+
+      can [:invite, :manage], Community, user.communities do |c|
+        user.has_role?(:creator, c)
+      end
+
+      can :read, community
+
+      can :read, Post, community_id: community.id
+      can :read, User do |viewed_user|
+        # at least on community in common
+        (viewed_user.communities.map(&:id) & user.communities.map(&:id)).any?
+      end
+
     end
-
-    can :read, user.communities
-
-    can :read, Post, community_id: user.communities.map(&:id)
-    can :read, User do |viewed_user|
-      # at least on community in common
-      (viewed_user.communities.map(&:id) & user.communities.map(&:id)).any?
-    end
-
 
     # Define abilities for the passed in user here. For example:
     #

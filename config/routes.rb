@@ -12,6 +12,12 @@ CommunityGreenlabCoworking::Application.routes.draw do
   resources :assets, only: [:create, :show]
   resources :communities
   resources :users, only: [:show]
+  resources :members, only: [:index] do
+    member do
+      put :disable
+      put :enable
+    end
+  end
 
   resource :profile, only: [:edit, :update]
   resources :posts, only: [:index, :create, :show] do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314111107) do
+ActiveRecord::Schema.define(version: 20140316113822) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140314111107) do
     t.integer  "community_id"
     t.integer  "user_id"
     t.datetime "created_at"
+    t.boolean  "enabled",      default: true
   end
 
   add_index "community_user_links", ["community_id", "user_id"], name: "index_community_user_links_on_community_id_and_user_id", using: :btree

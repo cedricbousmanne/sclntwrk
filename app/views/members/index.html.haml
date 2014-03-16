@@ -1,0 +1,24 @@
+- content_for(:title) { "Membres" }
+
+%table.table
+  %thead
+    %tr
+      %th Nom
+      %th Prénom
+      %th Email
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr{ class: user.enabled_in_community?(current_community) ? nil : "warning" }
+        %td= user.firstname
+        %td= user.lastname
+        %td= user.email
+        %td
+          = link_to user, class: "btn btn-default" do
+            %i.glyphicon.glyphicon-user
+          - if user.enabled_in_community?(current_community)
+            = link_to disable_member_url(user), method: :put, class: "btn btn-warning", title: "Désactiver" do
+              %i.glyphicon.glyphicon-ban-circle
+          - else
+            = link_to enable_member_url(user), method: :put, class: "btn btn-success", title: "Activer" do
+              %i.glyphicon.glyphicon-ok-circle

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   after_save :force_photo_fallback
 
   include PublicActivity::Common
+  include CommunityMembership
 
   phony_normalize :phone_number,  :default_country_code => 'BE'
   phony_normalize :mobile_number, :default_country_code => 'BE'

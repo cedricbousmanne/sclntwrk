@@ -22,4 +22,7 @@
       /   %a.btn.btn-xs.btn-default{href: "#"}
       /     %span.glyphicon.glyphicon-ban-circle
       /     Unfollow
+- if @user.disabled_for_community?(current_community)
+  .alert.alert-danger
+    Cet utilisateur a été desactivé par un administrateur
 = render partial: "posts/list", locals: { posts: @posts }

@@ -32,6 +32,16 @@ describe PostsController do
         response.body.should_not have_text(post.content)
       end
     end
+
+    context "as a disabled user" do
+      it "raise CanCan::AccessDenied" do
+        @current_user.disable_for_community(@current_community)
+        expect{
+          get 'index'
+        }.to raise_error(CanCan::AccessDenied)
+      end
+    end
+
   end
 
   describe "POST 'create'" do

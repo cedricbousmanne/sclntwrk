@@ -25,6 +25,10 @@ class PrivateController < ApplicationController
 
   private
 
+  def current_ability
+    @current_ability ||= Ability.new(current_user, current_community)
+  end
+
   def update_customerio
     CustomerioWorker.perform_async(current_user.id)
   end

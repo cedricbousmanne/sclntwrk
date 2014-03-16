@@ -2,11 +2,12 @@ require "spec_helper"
 require "cancan/matchers"
 describe "User" do
   describe "abilities" do
-    subject(:ability){ Ability.new(user) }
+    subject(:ability){ Ability.new(user, community) }
     let(:user){ nil }
 
     context "when is a user" do
       let(:user){ create(:user) }
+      let(:community){ user.communities.first }
 
       # should be able to create a new community
       it{ should be_able_to(:create, Community.new) }
@@ -35,6 +36,10 @@ describe "User" do
 
       # should NOT be able to inviter other users in other communities
       it { should_not be_able_to(:invite, other_community)}
+
+      # should be able to manage community
+      it { should be_able_to(:manage, community)}
+
     end
   end
 end
