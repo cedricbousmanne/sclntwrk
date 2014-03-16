@@ -40,6 +40,7 @@ gem 'unicorn',                 '4.8.2'
 gem 'asset_sync'
 gem 'bugsnag'
 gem 'customerio'
+gem 'rack-cache', require: 'rack/cache'
 
 group :development do
   gem 'capistrano'
