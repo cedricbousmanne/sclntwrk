@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316113822) do
+ActiveRecord::Schema.define(version: 20140317160241) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20140316113822) do
     t.datetime "updated_at"
     t.integer  "community_id"
     t.integer  "author_id"
+    t.string   "name"
+    t.integer  "size"
+    t.boolean  "image"
+    t.integer  "download_count", default: 0
   end
 
   add_index "assets", ["author_id"], name: "index_assets_on_author_id", using: :btree

@@ -1,0 +1,21 @@
+- content_for(:title) { "Documents" }
+
+- if @documents.any?
+  %table.table
+    %thead
+      %tr
+        %th Nom
+        %th Taille
+        %th Publié le
+        %th Publié par
+    %tbody
+      - @documents.each do |document|
+        %tr
+          %td= link_to document.name, document_path(document)
+          %td= number_to_human_size document.size
+          %td= document.created_at_link
+          %td= link_to document.author.display_name, document.author
+  = will_paginate(@documents)
+- else
+  .alert.alert-info
+    Il n'y a aucun document à afficher

@@ -12,6 +12,11 @@
           = link_to "#", class: "thumbnail" do
             %img.asset-preview{ "ng-src" => "{{ asset.thumb_url }}" }
             %input{name: "post[asset_ids][]", value: "{{ asset.id }}", type: "hidden"}
+      %ul.files-list
+        %li{ "ng-repeat" => "file in files | orderBy:id:reverse" }
+          = link_to "#" do
+            %span.asset-filename {{ file.name }}
+            %input{name: "post[asset_ids][]", value: "{{ file.id }}", type: "hidden"}
   .panel-footer
     .pull-left
       .fileinput.fileinput-new{"data-provides" => "fileinput"}

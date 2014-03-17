@@ -1,0 +1,10 @@
+%ul
+  %li
+    Type:
+    = @document.file.ext
+  %li
+    Taille:
+    = number_to_human_size @document.size
+  %li
+    Publication:
+    = @document.created_at_link

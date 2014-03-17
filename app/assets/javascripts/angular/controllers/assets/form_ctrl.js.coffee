@@ -1,6 +1,7 @@
 @AssetFormCtrl = [ "$scope", "$fileUploader", "$window", ($scope, $fileUploader, $window) ->
   $(document).on('ready page:load', ->
     $scope.assets = []
+    $scope.files  = []
 
     uploader = $scope.uploader = $fileUploader.create
       headers : {
@@ -13,7 +14,11 @@
       alias: "asset[file]"
 
     uploader.bind 'success', (event, xhr, item, response) ->
-      $scope.assets.push(response)
+      if(response["image"])
+        $scope.assets.push(response)
+      else
+        $scope.files.push(response)
+        console.log(response)
   )
 
   $scope.addPost = (el, $event) ->
@@ -27,6 +32,7 @@
       headers :
        'X-CSRF-TOKEN' : $('meta[name=csrf-token]').attr('content')
     $scope.assets = []
+    $scope.files  = []
     return false
 
 ]

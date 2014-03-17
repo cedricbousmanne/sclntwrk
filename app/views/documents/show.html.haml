@@ -1,0 +1,10 @@
+- content_for(:title) { @document.name }
+- if @document.image?
+  = render partial: "documents/types/image"
+- else
+  = render partial: "documents/types/other"
+
+%hr
+= link_to download_document_path(@document), class: "btn btn-success btn-lg" do
+  %i.glyphicon.glyphicon-download
+  Télécharger

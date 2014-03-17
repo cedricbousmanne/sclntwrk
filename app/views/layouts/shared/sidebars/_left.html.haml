@@ -7,3 +7,7 @@
     = link_to directory_url do
       %i.glyphicon.glyphicon-user
       Répertoire
+  %li{ class: current_section == 'documents' ? 'active' : nil }
+    = link_to documents_url do
+      %i.glyphicon.glyphicon-file
+      Documents

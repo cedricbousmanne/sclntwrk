@@ -1,8 +1,15 @@
-- if assets.any?
+- if assets.images.any?
   %ul.list-unstyled.list-inline
-    - for asset in assets
+    - for asset in assets.images
       %li
         = link_to "#asset-modal-#{asset.id}", class: "thumbnail", data: { toggle: "modal", target: "#asset-modal-#{asset.id}"} do
           = image_tag asset.file.thumb("100x100#").url
       - content_for(:bottom) do
         = render partial: "assets/modal", locals: { asset: asset }
+
+- if assets.documents.any?
+  %ul
+    - for asset in assets.documents
+      %li
+        = link_to document_path(asset) do
+          = asset.name

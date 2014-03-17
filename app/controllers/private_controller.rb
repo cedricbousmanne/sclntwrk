@@ -18,6 +18,8 @@ class PrivateController < ApplicationController
       "home"
     elsif controller_name == "directory"
       "directory"
+    elsif controller_name == "documents"
+      "documents"
     else
       ""
     end

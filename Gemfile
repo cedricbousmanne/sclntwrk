@@ -25,12 +25,13 @@ gem 'dragonfly',                       '1.0.3'
 gem 'dragonfly-s3_data_store',         '1.0.3'
 gem 'unf',                             '0.1.3'
 gem 'angular-gem',                     '1.2.1'
-gem 'will_paginate',                   '3.0.5'
+gem 'will_paginate',                   '3.0.4', git: "git@github.com:cedricbousmanne/will_paginate.git", branch: "french-translation", ref: "1c5d277998f15df0dd9ceea0fcfa9c7b3e2f1cf7"
 gem 'phony_rails',                     '0.6.1'
 gem 'roadie',                          '2.4.3'
 gem 'sidekiq',                         '2.17.7'
 gem 'premailer-rails',                 '1.7.0'
 gem 'nokogiri',                        '1.6.1'
+gem 'draper',                          '1.3.0'
 
 
 gem 'haml_coffee_assets',      '1.12.0'

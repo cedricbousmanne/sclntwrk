@@ -2,4 +2,3 @@ fr:
   activity:
     post:
       create: "<strong>%{owner} a publié</strong><br>%{content}"
-  
