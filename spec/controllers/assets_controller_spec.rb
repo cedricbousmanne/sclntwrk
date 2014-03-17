@@ -5,7 +5,7 @@ describe AssetsController do
   render_views
 
   def expected_json(asset)
-    { id: asset.id, file_uid: asset.file_uid, thumb_url: asset.file.thumb("100x100#").url }.to_json
+    { id: asset.id, file_uid: asset.file_uid, image: true, name: asset.name, thumb_url: asset.file.thumb("100x100#").url }.to_json
   end
 
   describe "POST 'create'" do
