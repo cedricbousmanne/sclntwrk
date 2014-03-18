@@ -46,4 +46,19 @@ describe PopularHashtags do
     end
 
   end
+
+  describe "#community" do
+    it "returns @community" do
+      @popular_hashtags.community.should eq(@current_community)
+    end
+  end
+
+  describe "#limit=" do
+    it "sets value for @limit" do
+      @popular_hashtags.limit(10)
+      @popular_hashtags.as_json['limit'].should eq(10)
+      @popular_hashtags.limit(1)
+      @popular_hashtags.as_json['limit'].should eq(1)
+    end
+  end
 end
