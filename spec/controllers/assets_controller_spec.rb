@@ -5,19 +5,28 @@ describe AssetsController do
   render_views
 
   def expected_json(asset)
-    { id: asset.id, file_uid: asset.file_uid, image: true, name: asset.name, thumb_url: asset.file.thumb("100x100#").url }.to_json
+    { id: asset.id, file_uid: asset.file_uid, image: asset.image, name: asset.name, thumb_url: asset.file.thumb("100x100#").url }.to_json
+  end
+
+  def check_file_upload(file)
+    expect{
+      post 'create', asset: {file: file}, format: :json
+    }.to change{ Asset.count }.from(0).to(1)
+
+    asset    = assigns[:asset]
+
+    response.body.should eq(expected_json(asset))
   end
 
   describe "POST 'create'" do
     it "create an Asset" do
       file = fixture_file_upload('assets/urquart.jpg', 'image/jpg')
-      expect{
-        post 'create', asset: {file: file}, format: :json
-      }.to change{ Asset.count }.from(0).to(1)
+      check_file_upload(file)
+    end
 
-      asset    = assigns[:asset]
-
-      response.body.should eq(expected_json(asset))
+    it "create an Assent with accented characters in the filename" do
+      file = fixture_file_upload('assets/caractère-accentué.txt', 'text/plain')
+      check_file_upload(file)
     end
   end
 

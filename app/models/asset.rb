@@ -6,12 +6,17 @@ class Asset < ActiveRecord::Base
 
   validates :community, :author, presence: true
 
+  before_validation :transliterate_file_name!
   after_create :save_file_data
 
   scope :images,    -> { where(image: true) }
   scope :documents, -> { where(image: false) }
 
   IMAGE_EXTENSIONS = %w{jpg JPG jpeg JPEG gif GIF png PNG}
+
+  def transliterate_file_name!
+    self.file.name = ActiveSupport::Inflector.transliterate file.name.downcase.gsub(/\s/,"_")
+  end
 
   private
 
