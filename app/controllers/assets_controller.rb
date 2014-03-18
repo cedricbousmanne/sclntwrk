@@ -14,6 +14,12 @@ class AssetsController < ApplicationController
     respond_with @asset
   end
 
+  def destroy
+    @asset = current_community.assets.find(params[:id])
+    @asset.destroy
+    respond_with @asset
+  end
+
   private
 
   def asset_params

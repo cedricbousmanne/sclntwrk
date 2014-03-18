@@ -21,6 +21,23 @@
         console.log(response)
   )
 
+  $scope.delete = (asset) ->
+    req = $.ajax
+      url: "/assets/"+asset.id+".json"
+      method: "DELETE"
+      dataType: "json"
+      headers :
+       'X-CSRF-TOKEN' : $('meta[name=csrf-token]').attr('content')
+
+    index = $scope.assets.indexOf(asset)
+    if index > -1
+      $scope.assets.splice(index, 1)
+    else
+      index = $scope.files.indexOf(asset)
+      $scope.files.splice(index, 1)
+
+    return false
+
   $scope.addPost = (el, $event) ->
     $event.preventDefault()
     form = $($event.currentTarget)

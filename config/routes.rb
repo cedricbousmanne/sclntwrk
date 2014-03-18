@@ -9,7 +9,7 @@ CommunityGreenlabCoworking::Application.routes.draw do
 
   devise_for :users, :controllers => { :invitations => 'users/invitations' }
 
-  resources :assets, only: [:create, :show]
+  resources :assets, only: [:create, :show, :destroy]
   resources :communities
   resources :users, only: [:show]
   resources :members, only: [:index] do

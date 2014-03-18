@@ -39,4 +39,15 @@ describe AssetsController do
       response.body.should eq(expected_json(asset))
     end
   end
+
+  describe "DEL 'destroy'" do
+    it "destroy an asset" do
+      file = fixture_file_upload('assets/caractère-accentué.txt', 'text/plain')
+      check_file_upload(file)
+      asset = assigns[:asset]
+      expect{
+        delete 'destroy', id: asset.id, format: :json
+      }.to change { Asset.count }.from(1).to(0)
+    end
+  end
 end

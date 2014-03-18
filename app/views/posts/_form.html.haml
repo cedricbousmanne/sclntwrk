@@ -1,21 +1,23 @@
-.panel.panel-default{ "ng-file-drop" => "", "ng-file-over" => "ng-file-over"}
+.new-post-form.panel.panel-default{ "ng-file-drop" => "", "ng-file-over" => "ng-file-over"}
   .panel-body
     = f.input :content, label: false, placeholder: "Exprimez-vous", input_html: { class: "autosize hashtags" }
     .row-inline
       %ul.assets-list.list-unstyled.list-inline
         %li{"ng-repeat" => "item in uploader.queue"}
-          = link_to "#", class: "thumbnail" do
+          %span.thumbnail
             %img.asset-spinner.asset-preview
-            / .progress{style: "margin-bottom: 0;"}
-            /   .bar{"ng-style" => "{ 'width': item.progress + '%' }", role: "progressbar"}
         %li{ "ng-repeat" => "asset in assets | orderBy:id:reverse" }
-          = link_to "#", class: "thumbnail" do
+          %span.thumbnail
+            %a{href: "#", class: "delete btn btn-xs btn-danger", "ng-click" => "delete(asset)"}
+              %i.glyphicon.glyphicon-trash
             %img.asset-preview{ "ng-src" => "{{ asset.thumb_url }}" }
             %input{name: "post[asset_ids][]", value: "{{ asset.id }}", type: "hidden"}
       %ul.files-list
         %li{ "ng-repeat" => "file in files | orderBy:id:reverse" }
-          = link_to "#" do
+          %span
             %span.asset-filename {{ file.name }}
+            %a{href: "#", class: "delete btn btn-xs btn-danger", "ng-click" => "delete(file)"}
+              %i.glyphicon.glyphicon-trash
             %input{name: "post[asset_ids][]", value: "{{ file.id }}", type: "hidden"}
   .panel-footer
     .pull-left

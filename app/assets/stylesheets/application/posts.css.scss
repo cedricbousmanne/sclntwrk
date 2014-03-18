@@ -59,3 +59,21 @@ a.load-more-posts{
   }
 
 }
+
+.new-post-form {
+  ul.assets-list,
+  ul.files-list{
+    span.thumbnail{
+      position: relative;
+      a.delete{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        &:hover{
+          padding: 1px 5px;
+        }
+      }
+
+    }
+  }
+}
