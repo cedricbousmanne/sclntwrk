@@ -2,6 +2,7 @@
 class DocumentsController < PrivateController
   layout "left_sidebar"
   before_action :load_document, only: [:show, :download]
+  
   def index
     @documents = current_community.assets
     @documents = @documents.includes(:author)
