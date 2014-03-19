@@ -32,6 +32,7 @@ gem 'sidekiq',                         '2.17.7'
 gem 'premailer-rails',                 '1.7.0'
 gem 'nokogiri',                        '1.6.1'
 gem 'draper',                          '1.3.0'
+gem 'sunspot_rails',                   '2.1.0'
 
 
 gem 'haml_coffee_assets',      '1.12.0'
@@ -57,6 +58,7 @@ group :development do
   gem 'bullet'
   gem 'lol_dba'
   gem 'rubocop'
+  gem 'sunspot_solr'
 end
 
 group :development, :test do

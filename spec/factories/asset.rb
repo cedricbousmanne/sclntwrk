@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :asset, :class => 'Asset' do
     publication_id 1
-    file_uid "MyString"
+    file { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'assets', 'urquart.jpg'), 'image/jpg') }
   end
 end

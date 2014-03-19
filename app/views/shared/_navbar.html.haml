@@ -1,20 +1,30 @@
 %nav.navbar.navbar-default{role: "navigation"}
   .container-fluid
     / Brand and toggle get grouped for better mobile display
-    .navbar-header
+    .navbar-header.col-xs-3.pull-right
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+    .col-xs-9.col-sm-4.col-md-2
       %a.navbar-brand{href: "#"}
         - if current_community.logo.present?
           = image_tag current_community.logo.thumb('x30>').url, alt: current_community.name
         - else
           = current_community.name
+    .col-xs-12.col-sm-4.col-md-7.search-form
+      = form_tag(search_path, role: "search", method: "GET", class: "navbar-form") do
+        .input-group
+          %input#srch-term.form-control{name: "srch-term", placeholder: "Rechercher...", type: "text"}/
+          .input-group-btn
+            %button.btn.btn-default{type: "submit"}
+              %i.glyphicon.glyphicon-search
+
     / Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      - if current_user
-        = render partial: "shared/user_navbar"
-      - else
-        = render partial: "shared/visitor_navbar"
+    .col-xs-12.col-sm-4.col-md-3
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        - if current_user
+          = render partial: "shared/user_navbar"
+        - else
+          = render partial: "shared/visitor_navbar"

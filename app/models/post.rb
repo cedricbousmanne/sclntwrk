@@ -1,4 +1,5 @@
 class Post < Publication
+  include Searchable::Publication
   self.per_page = 3
   hashtaggable_attribute :content
 

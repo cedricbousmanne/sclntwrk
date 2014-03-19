@@ -1,0 +1,2 @@
+- content_for(:title) { "Recherche : #{params[:term]}" }
+= render partial: "posts/list", locals: { posts: @posts }
