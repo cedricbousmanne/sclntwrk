@@ -85,3 +85,4 @@ pickle-email-*.html
 # Ignore Solr data
 solr/pids
 solr/data
+solr/test
