@@ -1,6 +1,6 @@
 - if @current_community.present?
   - if @current_community.logo.present?
-    = image_tag @current_community.logo.thumb('x30>').url
+    = image_tag @current_community.logo.thumb('x30>').url(host: @current_community.host)
     %hr
   - else
     = @current_community.name

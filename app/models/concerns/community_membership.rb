@@ -2,7 +2,7 @@ module CommunityMembership
   extend ActiveSupport::Concern
 
   included do
-    scope :enabled_in_community, ->(community) { joins(:community_user_links).where(community_id: community.id, enabled: true) }
+    scope :enabled_in_community, ->(community) { joins(:community_user_links).where("community_user_links.community_id" => community.id, "community_user_links.enabled" => true) }
   end
 
   def community_user_link_for(community)

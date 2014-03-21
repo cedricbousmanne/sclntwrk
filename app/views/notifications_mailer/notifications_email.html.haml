@@ -1,0 +1,3 @@
+- for notification in @notifications
+  = render partial: "notifications_mailer/notification", locals: { notification: notification }
+  %hr

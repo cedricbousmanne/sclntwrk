@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317160241) do
+ActiveRecord::Schema.define(version: 20140321135705) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -67,6 +67,38 @@ ActiveRecord::Schema.define(version: 20140317160241) do
   add_index "community_user_links", ["community_id", "user_id"], name: "index_community_user_links_on_community_id_and_user_id", using: :btree
   add_index "community_user_links", ["user_id", "community_id"], name: "index_community_user_links_on_user_id_and_community_id", using: :btree
 
+  create_table "conversations", force: true do |t|
+    t.string   "subject",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "messages", force: true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.string   "type"
+    t.text     "body"
+    t.string   "subject",              default: ""
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "conversation_id"
+    t.boolean  "draft",                default: false
+    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                           null: false
+    t.integer  "notified_object_id"
+    t.string   "notified_object_type"
+    t.string   "notification_code"
+    t.string   "attachment"
+    t.boolean  "global",               default: false
+    t.datetime "expires"
+    t.integer  "community_id"
+  end
+
+  add_index "notifications", ["conversation_id"], name: "index_notifications_on_conversation_id", using: :btree
+
   create_table "publications", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
@@ -83,6 +115,21 @@ ActiveRecord::Schema.define(version: 20140317160241) do
   add_index "publications", ["commentable_type"], name: "index_publications_on_commentable_type", using: :btree
   add_index "publications", ["community_id"], name: "index_publications_on_community_id", using: :btree
   add_index "publications", ["id", "type"], name: "index_publications_on_id_and_type", using: :btree
+
+  create_table "receipts", force: true do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "notification_id",                            null: false
+    t.boolean  "is_read",                    default: false
+    t.boolean  "trashed",                    default: false
+    t.boolean  "deleted",                    default: false
+    t.string   "mailbox_type",    limit: 25
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "community_id"
+  end
+
+  add_index "receipts", ["notification_id"], name: "index_receipts_on_notification_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -158,5 +205,9 @@ ActiveRecord::Schema.define(version: 20140317160241) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  add_foreign_key "notifications", "conversations", name: "notifications_on_conversation_id"
+
+  add_foreign_key "receipts", "notifications", name: "receipts_on_notification_id"
 
 end

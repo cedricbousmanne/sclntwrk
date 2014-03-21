@@ -19,4 +19,13 @@ describe Publication do
 
     Post.in_community(community_foo.id).should eq([post_foo])
   end
+
+  it "create a notification on create" do
+    user      = create(:community_creator)
+    community = user.communities.first
+    expect {
+      publication = Publication.create(author: user, community: community, content: "Foo")
+    }.to change { PublicActivity::Activity.count }.from(0).to(1)
+  end
+
 end

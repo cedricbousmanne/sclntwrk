@@ -1,7 +1,12 @@
+require 'sidekiq/web'
+
 CommunityGreenlabCoworking::Application.routes.draw do
 
   authenticated :user do
     root 'posts#index', as: :authenticated_root
+  end
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/admin/sidekiq'
   end
   unauthenticated do
     root 'pages#index'

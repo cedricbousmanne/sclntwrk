@@ -1,0 +1,2 @@
+ScheduleSendNotificationsWorker:
+  cron: "* */1 * * *"

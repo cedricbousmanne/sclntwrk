@@ -10,4 +10,8 @@ class Community < ActiveRecord::Base
   validates :name, presence: true
   validates :domain, presence: true, domain: true
 
+  def host
+    "http://#{domain}"
+  end
+
 end

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   validates_plausible_phone :phone_number
   validates_plausible_phone :mobile_number
 
+  acts_as_messageable
 
   def display_name
     return "#{firstname} #{lastname}" if firstname.present? && lastname.present?
@@ -33,6 +34,10 @@ class User < ActiveRecord::Base
 
   def photo_fallback
     File.open(File.join(Rails.root, "app", "assets", "images", "default-avatar.png"))
+  end
+
+  def mailboxer_email(object)
+    email
   end
 
   private

@@ -1,5 +1,6 @@
 class CustomerioWorker
   include Sidekiq::Worker
+  sidekiq_options retry: false
 
   def perform(user_id)
     customerio = Customerio::Client.new(CONFIG[:customerio][:id], CONFIG[:customerio][:key])

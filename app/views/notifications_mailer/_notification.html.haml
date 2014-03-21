@@ -1,0 +1,12 @@
+.col-md-3
+  = image_tag notification.sender.photo.thumb('40x40#').url(host: @current_community.host)
+.col-md-9
+  %strong= notification.subject
+  %p= notification.body
+  - if notification.notified_object
+    - if notification.notified_object.respond_to?(:commentable)
+      = link_to notification.notified_object.commentable, class: "btn btn-success" do
+        Voir
+    - else
+      = link_to notification.notified_object, class: "btn btn-success" do
+        Voir
