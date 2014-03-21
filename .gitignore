@@ -86,3 +86,4 @@ pickle-email-*.html
 solr/pids
 solr/data
 solr/test
+sunspot-solr.pid
